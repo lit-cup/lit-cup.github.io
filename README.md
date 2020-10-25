@@ -1,1 +1,0 @@
-# lit-cup.github.io
