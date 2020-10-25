@@ -1,0 +1,4 @@
+# Includes an icon in the footer for each user name you enter
+footer-links:
+  github: lit-cup
+  twitter: lit
