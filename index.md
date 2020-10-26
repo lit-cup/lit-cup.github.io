@@ -1,9 +1,9 @@
 ### litNook
-=========
-## Useful Link:
 
-1. [數位教學平台](http://moodle.nhu.edu.tw/) NanHua University Moodle Learning system 
-2. [南華大學 - 校務行政系統](https://std.nhu.edu.tw/) NanHua University support system
+# Useful Link:
+
+- [數位教學平台](http://moodle.nhu.edu.tw/) NanHua University Moodle Learning system 
+- [南華大學 - 校務行政系統](https://std.nhu.edu.tw/) NanHua University support system
  
 You can use the [editor on GitHub](https://github.com/lit-cup/lit-cup.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
 
