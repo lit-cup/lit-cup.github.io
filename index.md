@@ -1,6 +1,6 @@
-### Welcome to litNook
+##### litNook
 
-[lit](https://github.com/lit-cup/lit-cup.github.io/images/lit.png)
+![lit](/images/lit.png)
 
 
 ## Useful Link:
