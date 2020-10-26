@@ -1,5 +1,7 @@
-## Welcome to GitHub Pages
+## Welcome to litNook
 
+[南華大學 - 校務行政系統](https://std.nhu.edu.tw/)
+ 
 You can use the [editor on GitHub](https://github.com/lit-cup/lit-cup.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
