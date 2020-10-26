@@ -1,9 +1,5 @@
 ### litNook
-===========================
-![lit](/images/lit.png)
-===========================
-
-
+=========
 ## Useful Link:
 
 1. [數位教學平台](http://moodle.nhu.edu.tw/) NanHua University Moodle Learning system 
