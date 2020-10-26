@@ -1,5 +1,6 @@
 
-theme: jekyll-theme-minimal
+
 title: litNook
 description: Still Building
 logo: /images/lit.png
+theme: jekyll-theme-minimal
