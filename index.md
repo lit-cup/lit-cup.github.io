@@ -1,4 +1,4 @@
-#### litNook
+### litNook
 ![lit](/images/lit.png)
 
 
