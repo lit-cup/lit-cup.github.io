@@ -1,0 +1,55 @@
+body,
+html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Bebas Neue', sans-serif ;
+    background: url(echo_wakusei.png) no-repeat center center fixed;
+    -webkit-backgoround-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
+h1 {
+    font-size: 3rem;
+    color:rgb(105, 211, 176);
+}
+
+hr {
+    margin: 20px auto;
+    color: rgb(105, 211, 176);
+    border: 3px solid rgb(105, 211, 176);
+    max-width: 450px;
+    opacity: 1;  
+}
+.buffer {
+    height: 5rem;
+}
+
+.buffer2 {
+    height: 19rem;
+}
+
+.btn {
+    font-weight: 200;
+    border-radius: 500px;
+}
+
+.btn-primary {
+    background-color: rgb(105, 211, 176);
+    border-color:rgb(105, 211, 176);
+    --bs-btn-hover-bg: rgb(112, 108, 108);
+    --bs-btn-hover-border-color: rgb(112, 108, 108);
+}
+
+.btn-primary:hover {
+    background-color: rgb(0, 255, 170);
+    border-color:rgb(112, 108, 108);
+    border-width: 2px;
+}
+
+
+.btn-xl {
+    padding: 1rem 3rem;
+}
