@@ -688,18 +688,19 @@ address {
     }
     address{
         width: 350px;
-        margin: 20px 20px;
+        margin: 20px 30px;
         background-color: var(--color-background);
         padding: 20px;
         color: var(--color-text);
         border-radius: 20px;
     }
-    .footer-up .content li{
+    .footer-up .footer-content li{
         margin-bottom: 5px;
     }
     .footer-up {
         display: flex;
         flex-direction: column;
         font-size: 15px;
+        margin: 20px;
     }
 }
