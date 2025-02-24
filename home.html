@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="tss">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYTlit-cup</title>
+    <link href="home.css" rel="stylesheet">
+    <link rel="icon" href="./images/lit3.1 1.svg" type="image/svg+xml">
+</head>
+<body>
+    <header>
+        <nav class="guideline">
+            <nav class="menu">
+                <ul class="nav-links">
+                    <li><a href="#about-me-option" class="about-me-selected-option">關於我</a></li>
+                    <ul class="menu-dropdown">
+                        <li data-value="關於我"><a href="#about-me" class="active">關於我</a></li>
+                        <li data-value="學習與歷程"><a href="#timeline">學習與經歷</a></li>
+                        <li data-value="作品集"><a href="#Project">作品集</a></li>
+                    </ul>
+                </ul>
+                <div class="language-select">
+                    <div class="language-option">
+                        <img src="./images/translate.svg" alt="icon">
+                    </div>
+                    <div class="languageOption-items">
+                        <div data-lang="zh">
+                            <img src="./images/TW.svg" alt="icon">
+                        </div>
+                        <div data-lang="en">
+                            <img src="./images/EN.svg" alt="icon">
+                        </div>
+                        <div data-lang="ja">
+                            <img src="./images/JP.svg" alt="icon">
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </nav>   
+    </header>
+    <main>
+        <section class="about-me" data-value="關於我" id="about-me">
+            <img src="./images/lit3.1 1.svg" alt="A emblem of Chen Yi Ting" class="flicker performance-optimized" height="300px" width="300px">
+            <article>
+                <h1>陳奕廷</h1>
+                <h1>前端開發者</h1>
+                <p><strong>專注於學習前端的開發</strong>，走在成為專業的前端工程師路上。 
+                    擅長 HTML、CSS、JavaScript，致力於設計高效且響應式的網頁。目標是在
+                    未來加入一家科技公司，成為出色的前端工程師。</p>
+            </article>
+        </section>
+        <section class="timeline" data-value="學習與歷程" id="timeline">
+            <div class ="timeline-2020">
+                <div class="timeline-item">
+                    <div class="timeline-skill-level">
+                        <div class="skill">
+                            <li>C/C++</li>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <li>Java</li>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <li>HTML/CSS</li>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-contnet">
+                        <div class="content">
+                            <li>學習C、C++</li>
+                            <p>掌握基本語法、資料結構。</p>
+                        </div>    
+                        <div class="content">
+                            <li>學習Java</li>
+                            <p>掌握物件導向設計。</p>
+                        </div>
+                        <div class="content">
+                            <li>學習HTML/CSS</li>    
+                            <p>掌握基本程式語法。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-2022">
+                <div class="timeline-item">
+                    <div class="timeline-skill-level">
+                        <div class="skill">
+                            <li>Python</li>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <li>Linux環境</li>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-contnet">
+                        <div class="content">
+                            <li>學習Python</li>
+                            <p>掌握數據分析技巧</p>
+                        </div>
+                        <div class="content">
+                            <li>大學專題 - 智慧鐵捲門系統</li>
+                            <p>實作 Linux 開發環境。
+                                Android Studio 協作開發輔助APP。
+                                規劃設計MQTT通訊協定</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-2024">
+                <div class="timeline-item">
+                    <div class="timeline-skill-level">
+                        <div class="skill">
+                            <li>JavaScript</li>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <li>ReactJS</li>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 30%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-contnet">
+                        <div class="content">
+                            <li>學習JavaScript、ReactJS</li>
+                            <p>基本語法以及案例</p>
+                        </div>
+                        <div class="content">
+                            <li>學習響應試網站設計</li>
+                            <p>建立自己的個人網站、部屬 Github Page</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="Project" data-value="作品集" id="Project">
+            <article>
+                <h3>專案名稱</h3>
+                <p>標題開頭</p>
+                <p>時間</p>
+            </article>
+            <article>
+                <h3>專案名稱</h3>
+                <p>標題開頭</p>
+                <p>時間</p>
+            </article>
+            <article>
+                <h3>專案名稱</h3>
+                <p>標題開頭</p>
+                <p>時間</p>
+            </article>
+        </section>
+        <footer>
+            <div class="footer-up">
+                <address class="footer-content">
+                    <h3>聯繫方式</h3>
+                    <ul>
+                        <li>Email:  stuart.yitingchen@gmail.com</li>
+                        <li>Github:<a href = "https://github.com/lit-cup" target="_blank">  lit-cup</a></li>
+                        <li>LinkedIn:   (building)</li>
+                        <li>個人網站:   (building)</li>
+                    </ul>
+                </address>
+                <h2>歡迎聯繫我或查看我的作品集，期待與您合作!!</h2>
+            </div>
+            <div class="copyright">
+                <p>©2025 lit-cup. All rights reserved.</p>
+            </div>
+        </footer>
+    </main>
+    <script src="./js/home.js" defer></script>
+</body>
+</html>
