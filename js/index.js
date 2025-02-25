@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const languageSelect = document.querySelector('.language-select');
     const menuSelect = document.querySelector('.nav-links');
     const selectedOption = document.querySelector(".about-me-selected-option");
-    const dropdownItems = document.querySelectorAll(".menu-dropdown li")
     const menuItems = document.querySelectorAll('nav .menu li a');
     let currentLang = localStorage.getItem("language") || "zh";
 
@@ -55,6 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         selectedOption.textContent = item.textContent;
                         menuSelect.classList.remove('active');
                     }
+                    item.addEventListener("click", () => {
+                        item.classList.remove('active');
+                        selectedOption.textContent = item.textContent;
+                    });
                 });
 
             }
@@ -87,14 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
           languageSelect.classList.remove('open');
           loadTranslations(currentLang);
         }
-    });
-    //監聽選單項目點擊事件
-    dropdownItems.forEach(item => {
-        item.addEventListener("click", () => {
-            const newValue = item.getAttribute("data-lang"); // 取得點擊的值
-            selectedOption.textContent = newValue; // 更新固定顯示的選項
-            menuSelect.classList.remove('active');
-        });
     });
 });
 
