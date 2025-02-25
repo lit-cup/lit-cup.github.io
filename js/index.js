@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
           loadTranslations(currentLang);
         }
     });
-    監聽選單項目點擊事件
+    //監聽選單項目點擊事件
     dropdownItems.forEach(item => {
         item.addEventListener("click", () => {
             const newValue = item.getAttribute("data-lang"); // 取得點擊的值
