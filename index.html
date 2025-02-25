@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tss">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,11 +12,11 @@
         <nav class="guideline">
             <nav class="menu">
                 <ul class="nav-links">
-                    <li><a href="#about-me-option" class="about-me-selected-option">關於我</a></li>
+                    <li><a href="#about-me-option" class="about-me-selected-option" data-lang="About-me">關於我</a></li>
                     <ul class="menu-dropdown">
-                        <li data-value="關於我"><a href="#about-me" class="active">關於我</a></li>
-                        <li data-value="學習與歷程"><a href="#timeline">學習與經歷</a></li>
-                        <li data-value="作品集"><a href="#Project">作品集</a></li>
+                        <li><a href="#about-me" data-lang="About-me">關於我</a></li>
+                        <li><a href="#timeline" data-lang="Timeline">學習與經歷</a></li>
+                        <li><a href="#Project" data-lang="Projects">作品集</a></li>
                     </ul>
                 </ul>
                 <div class="language-select">
@@ -42,11 +42,13 @@
         <section class="about-me" data-value="關於我" id="about-me">
             <img src="./images/lit3.1 1.svg" alt="A emblem of Chen Yi Ting" class="flicker performance-optimized" height="300px" width="300px" loading="lazy">
             <article>
-                <h1>陳奕廷</h1>
-                <h1>前端開發者</h1>
-                <p><strong>專注於學習前端的開發</strong>，走在成為專業的前端工程師路上。 
-                    擅長 HTML、CSS、JavaScript，致力於設計高效且響應式的網頁。目標是在
-                    未來加入一家科技公司，成為出色的前端工程師。</p>
+                <h1 data-lang="Myname">陳奕廷</h1>
+                <h1 data-lang="JobTitle">前端開發者</h1> 
+                <strong data-lang="Description-title">專注於學習前端的開發</strong>
+                <p data-lang="Description">
+                    走在成為專業的前端工程師路上。 
+                    擅長 HTML、CSS、JavaScript，致力於設計高效且響應式的網頁。
+                    目標是在未來加入一家科技公司，成為出色的前端工程師。</p>
             </article>
         </section>
         <section class="timeline" data-value="學習與歷程" id="timeline">
@@ -74,16 +76,16 @@
                     </div>
                     <div class="timeline-contnet">
                         <div class="content">
-                            <li>學習C、C++</li>
-                            <p>掌握基本語法、資料結構。</p>
+                            <li data-lang="L-CC">學習C、C++</li>
+                            <p data-lang="L-CC-Describe">掌握基本語法、資料結構。</p>
                         </div>    
                         <div class="content">
-                            <li>學習Java</li>
-                            <p>掌握物件導向設計。</p>
+                            <li data-lang="L-Java">學習Java</li>
+                            <p data-lang="L-Java-Describe">掌握物件導向設計。</p>
                         </div>
                         <div class="content">
-                            <li>學習HTML/CSS</li>    
-                            <p>掌握基本程式語法。</p>
+                            <li data-lang="L-HTMLCSS">學習HTML/CSS</li>    
+                            <p data-lang="L-HTMLCSS-Describe">掌握基本程式語法。</p>
                         </div>
                     </div>
                 </div>
@@ -98,7 +100,7 @@
                             </div>
                         </div>
                         <div class="skill">
-                            <li>Linux環境</li>
+                            <li data-lang="Skill-linux">Linux環境</li>
                             <div class="progress-bar">
                                 <div class="progress" style="width: 75%;"></div>
                             </div>
@@ -106,12 +108,12 @@
                     </div>
                     <div class="timeline-contnet">
                         <div class="content">
-                            <li>學習Python</li>
-                            <p>掌握數據分析技巧</p>
+                            <li data-lang="L-PY">學習Python</li>
+                            <p data-lang="L-PY-Describe">掌握數據分析技巧</p>
                         </div>
                         <div class="content">
-                            <li>大學專題 - 智慧鐵捲門系統</li>
-                            <p>實作 Linux 開發環境。
+                            <li data-lang="Collage-Side-Project">大學專題 - 智慧鐵捲門系統</li>
+                            <p data-lang="Collage-Side-Project-Describe">實作 Linux 開發環境。
                                 Android Studio 協作開發輔助APP。
                                 規劃設計MQTT通訊協定</p>
                         </div>
@@ -136,12 +138,12 @@
                     </div>
                     <div class="timeline-contnet">
                         <div class="content">
-                            <li>學習JavaScript、ReactJS</li>
-                            <p>基本語法以及案例</p>
+                            <li data-lang="L-JS-React">學習JavaScript、ReactJS</li>
+                            <p data-lang="L-JS-React-Describe">基本語法以及案例</p>
                         </div>
                         <div class="content">
-                            <li>學習響應試網站設計</li>
-                            <p>建立自己的個人網站、部屬 Github Page</p>
+                            <li data-lang="L-RWD">學習響應試網站設計</li>
+                            <p data-lang="L-RWD-Describe">建立自己的個人網站、部屬 Github Page</p>
                         </div>
                     </div>
                 </div>
@@ -149,33 +151,33 @@
         </section>
         <section class="Project" data-value="作品集" id="Project">
             <article>
-                <h3>專案名稱</h3>
-                <p>標題開頭</p>
-                <p>時間</p>
+                <h3 data-lang="P-Name">專案名稱</h3>
+                <p data-lang="Title">標題開頭</p>
+                <p data-lang="ReleaseTime">時間</p>
             </article>
             <article>
-                <h3>專案名稱</h3>
-                <p>標題開頭</p>
-                <p>時間</p>
+                <h3 data-lang="P-Name">專案名稱</h3>
+                <p data-lang="Title">標題開頭</p>
+                <p data-lang="ReleaseTime">時間</p>
             </article>
             <article>
-                <h3>專案名稱</h3>
-                <p>標題開頭</p>
-                <p>時間</p>
+                <h3 data-lang="P-Name">專案名稱</h3>
+                <p data-lang="Title">標題開頭</p>
+                <p data-lang="ReleaseTime">時間</p>
             </article>
         </section>
         <footer>
             <div class="footer-up">
                 <address class="footer-content">
-                    <h3>聯繫方式</h3>
+                    <h3 data-lang="Contact">聯繫方式</h3>
                     <ul>
                         <li>Email:  stuart.yitingchen@gmail.com</li>
                         <li>Github:<a href = "https://github.com/lit-cup" target="_blank">  lit-cup</a></li>
                         <li>LinkedIn:   (building)</li>
-                        <li>個人網站:   (building)</li>
+                        <li><a href = "https://lit-cup.github.io" target="_blank" data-lang="Portfolio">個人網站:   </a></li>
                     </ul>
                 </address>
-                <h2>歡迎聯繫我或查看我的作品集，期待與您合作!!</h2>
+                <h2 data-lang="footer">歡迎聯繫我或查看我的作品集，期待與您合作!!</h2>
             </div>
             <div class="copyright">
                 <p>©2025 lit-cup. All rights reserved.</p>

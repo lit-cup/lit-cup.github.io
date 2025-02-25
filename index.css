@@ -45,6 +45,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
 }
 
 html {
@@ -94,24 +95,26 @@ nav .menu{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 nav .menu .nav-links .menu-dropdown {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 20px;
+    padding: 20px;
     list-style: none;
     border-radius: 200px;
     background: linear-gradient(to right, #ffffff80, #ffffff20);
     backdrop-filter: blur(5px);
 }
 
-nav .menu li {
+nav .menu li a{
     list-style: none;
     margin: 15px 40px;
 }
 
-nav .menu li a {
+nav .menu li a{
     position: relative;
     font-size: clamp(20px, 5vw, 25px);
     font-weight: 900;
@@ -141,18 +144,14 @@ nav .menu li a:hover::after {
 
 .language-select {
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 6%;
-    height: 6%;
 }
-
+.language-option{
+    margin: 10px;
+}
 .language-option img {
     display: block;
     width: 100%;
     height: 100%;
-    margin-bottom: 10px;
 }
 
 .language-select .languageOption-items {
@@ -418,6 +417,10 @@ address {
     display: flex;
     flex-direction: column;
     width: 400px;
+    padding: 20px;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    border-radius: 20px;
 }
 
 .footer-content ul {
@@ -437,7 +440,8 @@ address {
 
 .footer-content h3 {
     text-align: left;
-    margin: 0;
+    font-size: 30px;
+    margin: 0 0 20px 0;
 }
 .footer-content h2{
     font-size: clamp(15px, 5vw, 20px); 
@@ -447,7 +451,6 @@ address {
     font-size: clamp(6px, 5vw, 12px);
     text-align: center;
 }
-
 @media (min-width: 600px) and (max-width: 1024px) {
     nav .menu{
         justify-content: space-around;
@@ -459,9 +462,10 @@ address {
     nav .menu .nav-links li{
         margin-left: 20px;
     }
-    nav .menu li a {
+    nav .menu li a{
         font-size: 20px;
         text-align: start;
+        margin: 0;
     }
     nav .menu .about-me-selected-option{
         display: block;
@@ -479,30 +483,33 @@ address {
     nav .menu .nav-links.active .menu-dropdown{
         display: block;
         width: 200px;
-        margin: 0px;
+        margin: 0;
+        padding: 0;
         background: 0px;
         backdrop-filter: blur(0px);
     }
-
+    nav .menu .nav-links.active .menu-dropdown li{
+        margin: 10px 20px;
+    }
     .language-select{
         display: flex;
+        flex-direction: column;
         align-items: end;
-        margin: 0 20px;
-        height: 50%;
-        width: 50%;
+        margin: 0px 20px;
     }
     .language-option{
         height: 30px;
-        width: 25px;
+        width: 30px;
     }
     .language-select.open .languageOption-items {
-        width: 10%;
+        width: 20%;
+        margin: 0 20px;
     }
     .about-me{
         margin-left: 0;
     }
     .about-me img {
-        width: 50%;
+        width: 90%;
         margin-left: 0;
     }
     .about-me h1 {
@@ -513,7 +520,7 @@ address {
         width: 80%;
     }
     .timeline-item {
-        height: 330px;
+        height: 400px;
         grid-template-columns: 250px 300px;
     }
     .timeline-2020,
@@ -547,30 +554,48 @@ address {
         margin: 0;
     }
     .footer-up {
-        display: flex;
+        justify-content: space-around;
         font-size: 15px;
+        margin: 0;
+        width: 100%;
+    }
+    address{
+        background-color: var(--color-background);
+        color: var(--color-text);
+        border-radius: 20px;
+    }
+    .footer-up h3{
+        font-size: 30px;
+        margin: 0 0 20px 0;
+    }
+    .footer-up .footer-content{
+        padding: 30px;
+        line-height: 1.3;
+    }
+    .footer-up h2{
+        padding: 30px;
     }
 }
-
 @media (max-width: 600px) {
     nav .menu{
         justify-content: space-between;
         width: 100%;
     }
     nav .menu .nav-links{
-        width: 50%;
+        width: 40%;
     }
     nav .menu .nav-links li{
         margin-left: 10px;
     }
-    nav .menu li a {
+    nav .menu li a{
         font-size: 20px;
         text-align: start;
+        margin: 0;
     }
     nav .menu .about-me-selected-option{
         display: block;
         cursor: pointer;
-        width: fit-content;
+        
     }
     nav .menu .about-me-selected-option::after{
         display: none;
@@ -578,8 +603,7 @@ address {
     nav .menu .nav-links .menu-dropdown{
         display: none;
         position: absolute;
-        width: max-content;
-        
+        padding: 0px;
     }
     nav .menu .nav-links.active .menu-dropdown{
         display: block;
@@ -588,13 +612,14 @@ address {
         background: 0px;
         backdrop-filter: blur(0px);
     }
+    .menu-dropdown li{
+        margin-top: 10px;
+    }
 
     .language-select{
         display: flex;
+        flex-direction: column;
         align-items: end;
-        margin: 0 10px;
-        height: 50%;
-        width: 10%;
     }
     .language-option{
         height: 30px;
@@ -602,6 +627,7 @@ address {
     }
     .language-select.open .languageOption-items {
         width: 70%;
+        margin: 0 10px;
     }
     .about-me{
         display: flex;
@@ -615,7 +641,7 @@ address {
     }
     .about-me article{
         text-align: center;
-        margin: 0 20%;
+        margin: 0 10%;
     }
     .about-me h1 {
         font-size: var(--font-size-xl);
@@ -643,7 +669,9 @@ address {
     }
     .skill{
         margin: 0;
-        font-size: 10px;
+    }
+    .skill li{
+        font-size: 90%;
     }
     .timeline-contnet{
         width: 100%;
@@ -689,8 +717,8 @@ address {
     address{
         width: 350px;
         margin: 20px 30px;
-        background-color: var(--color-background);
         padding: 20px;
+        background-color: var(--color-background);
         color: var(--color-text);
         border-radius: 20px;
     }
@@ -700,7 +728,7 @@ address {
     .footer-up {
         display: flex;
         flex-direction: column;
-        font-size: 15px;
+        font-size: 90%;
         margin: 20px;
     }
 }
