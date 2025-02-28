@@ -1,35 +1,64 @@
 document.addEventListener('DOMContentLoaded', () => {
+    //For language option
     const selected = document.querySelector('.language-option');
     const languageOptionItems = document.querySelector('.languageOption-items');
     const languageSelect = document.querySelector('.language-select');
     const menuSelect = document.querySelector('.nav-links');
+    //For default language 
+    let currentLang = localStorage.getItem("language") || "en";
+    //For menu
     const selectedOption = document.querySelector(".about-me-selected-option");
     const menuItems = document.querySelectorAll('nav .menu li a');
-    let currentLang = localStorage.getItem("language") || "zh";
+    //For theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    //For default theme
+    let currentTheme = localStorage.getItem("theme") || "light";
+    //For footer backup
+    const footerTop = document.querySelector('.footer-backup');
+    //For progressbar
+    const progressbar = document.querySelectorAll('.progress');
 
-    async function loadTranslations(lang) {
-        try {
-            const response = await fetch("./js/language.json");
-            const translateions = await response.json();
-            
-            document.querySelectorAll("[data-lang]").forEach((element)=>{
-                const key = element.getAttribute("data-lang");
-                if(translateions[lang][key]){
-
-                    element.innerHTML = translateions[lang][key];
-
-                    element.style.display = "none";
-                    element.offsetHeight; 
-                    element.style.display = "";
-                }
-            });
-            localStorage.setItem("language", lang);
-        } catch (error) {
-            console.error("Error Translations", error)
-        }
+    //For progressbar animation
+    progressbarAnimation();
+    //For progressbar
+    function progressbarAnimation(){
+        progressbar.forEach(bar => {
+            const width = bar.getAttribute('data-width');
+            bar.style.width = width + '%';
+        });
     }
+
+ 
+    // Apply saved theme
+    if (currentTheme === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+        document.documentElement.setAttribute("data-theme", "light");
+    }
+
+    // Theme toggle functionality
+    themeToggle.addEventListener('click', () => {
+        if (currentTheme === "light") {
+            document.documentElement.setAttribute("data-theme", "dark");
+            currentTheme = "dark";
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+            currentTheme = "light";
+        }
+        localStorage.setItem("theme", currentTheme);
+    });
+
+    //footer-backup action
+    footerTop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
     loadTranslations(currentLang);
-    //導覽列底線
+
+    //menu-line
     menuItems.forEach(item => {
         item.addEventListener('click', function() {
             menuItems.forEach(i => i.classList.remove('active'));
@@ -37,8 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         });
     });
+    //open menu
+    selectedOption.addEventListener('click',()=>{
+        menuSelect.classList.toggle('active');
+    })
 
-    //滑動螢幕的動作 1. 給section上底線 active 2. 中螢幕時替換導覽列文字
+    //moving screen action 1. active menuItems 2. in the middle of screen, change the text of selectedOption
     window.addEventListener('scroll', function() {
         let current = '';
         const sections = document.querySelectorAll('section');
@@ -65,13 +98,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
-    selectedOption.addEventListener('click',()=>{
-        menuSelect.classList.toggle('active');
-    })
+    //For translation
+    async function loadTranslations(lang) {
+        try {
+            const response = await fetch("./js/language.json");
+            const translateions = await response.json();
+            
+            document.querySelectorAll("[data-lang]").forEach((element)=>{
+                const key = element.getAttribute("data-lang");
+                if(translateions[lang][key]){
 
+                    element.innerHTML = translateions[lang][key];
 
-    
-    //translate language
+                    element.style.display = "none";
+                    element.offsetHeight; 
+                    element.style.display = "";
+                }
+            });
+            localStorage.setItem("language", lang);
+        } catch (error) {
+            console.error("Error Translations", error)
+        }
+    }
+    //open translate language
     selected.addEventListener('click', () => {
         languageSelect.classList.toggle('open');
     });
@@ -82,17 +131,17 @@ document.addEventListener('DOMContentLoaded', () => {
           const imgSrc = selectedItem.querySelector('img').src;
           let lang = selectedItem.getAttribute('data-lang');
           currentLang = lang;
-          // 更新選中的內容
+          // tranform img src of language option
           selected.innerHTML = `<img src="${imgSrc}" alt="icon" loading="lazy">`;
-    
-          // 模擬語言切換邏輯
-          //alert(`切換到語言：${text}`);
+          // close language option
           languageSelect.classList.remove('open');
+          // load translations
           loadTranslations(currentLang);
         }
     });
 });
 
+//close language option and menu when click outside
 document.addEventListener("click", function (event) {
     const selected = document.querySelector('.language-option');
     const languageOptionItems = document.querySelector('.languageOption-items');
