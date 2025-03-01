@@ -39,7 +39,49 @@
     --color-project-bg: rgba(255, 127, 80, 0.2);
     --color-project-article-bg: rgba(255, 127, 80, 0.4);
 }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+@keyframes slideInFromLeft {
+    0% { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
 
+@keyframes slideInFromRight {
+    0% { transform: translateX(100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromTop {
+    0% { transform: translateY(-100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInFromBottom {
+    0% { transform: translateY(100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -100% 0; }
+    100% { background-position: 100% 0; }
+}
 
 .flex-center {
     display: flex;
@@ -92,18 +134,19 @@ header::before {
     left: 0;
     width: 100%;
     z-index: 1000;
+    animation: slideInFromTop 1s ease-in-out;
 }
 
-nav .menu .about-me-selected-option{
+.menu .about-me-selected-option{
     display: none;
 }
-nav .menu{
+.menu{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
-nav .menu .nav-links .menu-dropdown {
+.menu .nav-links .menu-dropdown {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,12 +157,12 @@ nav .menu .nav-links .menu-dropdown {
     backdrop-filter: blur(5px);
 }
 
-nav .menu li a{
+.menu li a{
     list-style: none;
     margin: 15px 40px;
 }
 
-nav .menu li a{
+.menu li a{
     position: relative;
     font-size: clamp(20px, 5vw, 25px);
     font-weight: 900;
@@ -129,7 +172,7 @@ nav .menu li a{
     text-shadow: 0px 4px 10px var(--color-text-shadow);
 }
 
-nav .menu li a::after {
+.menu li a::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -141,8 +184,8 @@ nav .menu li a::after {
     background-color: var(--color-primary);
 }
 
-nav .menu li a.active::after,
-nav .menu li a:hover::after {
+.menu li a.active::after,
+.menu li a:hover::after {
     transform: scaleX(0.5);
     transform-origin: center;
 }
@@ -220,6 +263,7 @@ nav .menu li a:hover::after {
 .about-me article {
     width: 45%;
     height: auto;
+    animation: fadeIn 2s ease-in-out;
 }
 
 .about-me article h1 {
@@ -239,9 +283,11 @@ nav .menu li a:hover::after {
 
 .about-me p {
     width: 50%;
+    border: 2px dashed var(--color-primary);
     color: var(--color-text);
-}
-.journey-begins{
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .timeline-2020, 
@@ -263,6 +309,14 @@ nav .menu li a:hover::after {
     width: fit-content;
     grid-template-columns: 300px 650px;
     align-items: start;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .timeline-2020::before, 
@@ -279,6 +333,7 @@ nav .menu li a:hover::after {
     text-shadow: 0px 4px 4px var(--color-text-shadow);
     border-radius: 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: slideInFromBottom 0.8s ease-in-out;
 }
 
 .timeline-2020::before{
@@ -313,6 +368,14 @@ nav .menu li a:hover::after {
     padding: 25px;
     list-style-type: none;
     border-radius: 50px;
+    transform: translateX(50px);
+    opacity: 0;
+    transition: all 0.5s ease-out;
+}
+
+.timeline-contnet .content.visible {
+    transform: translateX(0);
+    opacity: 1;
 }
 
 .content li {
@@ -320,7 +383,6 @@ nav .menu li a:hover::after {
     font-weight: 900;
     font-size: clamp(10px, 5vw, 20px);
 }
-
 
 .skill {
     margin-bottom: 15px;
@@ -342,7 +404,9 @@ nav .menu li a:hover::after {
     height: 10px;
     background-color: var(--color-background);
     border-radius: 10px;
-    animation: width 2s ease-in-out;
+    animation: width 3s ease-in-out;
+    width: 0;
+    transition: width 1.5s ease-in-out;
 }
 @keyframes width {
     0% {
@@ -382,6 +446,14 @@ nav .menu li a:hover::after {
     background: var(--color-project-bg);
     border-radius: 50px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.Project.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .Project article {
@@ -394,15 +466,24 @@ nav .menu li a:hover::after {
     padding: 30px;
     margin: 70px;
     border-radius: 30px;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.Project article:hover {
+    transform: scale(1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .Project h3 {
     margin: 0;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .Project p {
     font-size: 40px;
     margin: 0;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
 footer {
@@ -468,9 +549,26 @@ address {
     align-items: center;
     justify-content: end;
     width: 100%;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+    pointer-events: none;
+    will-change: opacity, transform;
 }
+
+.footer-toggle.visible {
+    opacity: 1;
+    transform: translateX(0);
+    animation: slideInFromRight 0.8s ease-in-out;
+    pointer-events: auto;
+}
+
 .footer-backup span{
-    margin: 0 50px 0 10px;
+    margin: 0 10px 0 10px;
     font-size: 30px;
     font-weight: 900;
     width: 50px;
@@ -496,6 +594,7 @@ address {
     border-radius: 50%;
     box-shadow: 0 1px 2px var(--color-text-shadow);
     transition: transform 0.3s ease;
+    animation: pulse 3s infinite ease-in-out;
 }
 
 .theme-toggle:hover {
@@ -519,294 +618,4 @@ address {
 .copyright {
     font-size: clamp(6px, 5vw, 12px);
     text-align: center;
-}
-@media (min-width: 600px) and (max-width: 1024px) {
-    nav .menu{
-        justify-content: space-around;
-        width: 100%;
-    }
-    nav .menu .nav-links{
-        width: 100%;
-    }
-    nav .menu .nav-links li{
-        margin-left: 20px;
-    }
-    nav .menu li a{
-        font-size: 20px;
-        text-align: start;
-        margin: 0;
-    }
-    nav .menu .about-me-selected-option{
-        display: block;
-        cursor: pointer;
-        width: fit-content;
-    }
-    nav .menu .about-me-selected-option::after{
-        display: none;
-    }
-    nav .menu .nav-links .menu-dropdown{
-        display: none;
-        position: absolute;
-        width: max-content;
-    }
-    nav .menu .nav-links.active .menu-dropdown{
-        display: block;
-        width: 200px;
-        margin: 0;
-        padding: 0;
-        background: 0px;
-        backdrop-filter: blur(0px);
-    }
-    nav .menu .nav-links.active .menu-dropdown li{
-        margin: 10px 20px;
-    }
-    .language-select{
-        display: flex;
-        flex-direction: column;
-        align-items: end;
-        margin: 0px 20px;
-    }
-    .language-option{
-        height: 30px;
-        width: 30px;
-    }
-    .language-select.open .languageOption-items {
-        width: 20%;
-        margin: 0 20px;
-    }
-    header::before {
-        height: 90vh;
-        border-radius: 0 0 60px 60px;
-        background: radial-gradient(ellipse, var(--color-background) 75%, var(--color-primary) 300%);
-    }
-    .about-me{  
-        height: 70vh;
-    }
-    .about-me img {
-        width: 50%;
-    }
-    .about-me h1 {
-        font-size: var(--font-size-xl);
-    }
-    .about-me p {
-        margin: 10px 0;
-        width: 80%;
-    }
-    .timeline-item {
-        height: 400px;
-        grid-template-columns: 250px 300px;
-    }
-    .timeline-2020,
-    .timeline-2022,
-    .timeline-2024{
-        margin-top: 10%;
-        height: 70%;
-        align-items: center;
-    }
-    .timeline-2020::before,
-    .timeline-2022::before,
-    .timeline-2024::before {
-        margin: 0 0 0 0;
-        width: 50%;
-        font-size: 40px;
-    }
-    .Project {
-        flex-direction: column;
-        width: 90%;
-        height: 600px;
-    }
-    .Project article {
-        width: 90%;
-        margin: 10px;
-    }
-    .Project h3 {
-        margin: 0;
-    }
-    .Project p {
-        font-size: 25px;
-        margin: 0;
-    }
-    .footer-up {
-        justify-content: space-around;
-        font-size: 15px;
-        margin: 0;
-        width: 100%;
-    }
-    address{
-        background-color: var(--color-background);
-        color: var(--color-text);
-        border-radius: 20px;
-    }
-    .footer-up h3{
-        font-size: 30px;
-        margin: 0 0 20px 0;
-    }
-    .footer-up .footer-content{
-        padding: 30px;
-        line-height: 1.3;
-    }
-    .footer-up h2{
-        padding: 30px;
-    }
-}
-@media (max-width: 600px) {
-    nav .menu{
-        justify-content: space-between;
-        width: 100%;
-    }
-    nav .menu .nav-links{
-        width: 40%;
-    }
-    nav .menu .nav-links li{
-        margin-left: 10px;
-    }
-    nav .menu li a{
-        font-size: 20px;
-        text-align: start;
-        margin: 0;
-    }
-    nav .menu .about-me-selected-option{
-        display: block;
-        cursor: pointer;
-        
-    }
-    nav .menu .about-me-selected-option::after{
-        display: none;
-    }
-    nav .menu .nav-links .menu-dropdown{
-        display: none;
-        position: absolute;
-        padding: 0px;
-    }
-    nav .menu .nav-links.active .menu-dropdown{
-        display: block;
-        width: 200px;
-        margin: 0px;
-        background: 0px;
-        backdrop-filter: blur(0px);
-    }
-    .menu-dropdown li{
-        margin-top: 10px;
-    }
-
-    .language-select{
-        display: flex;
-        flex-direction: column;
-        align-items: end;
-    }
-    .language-option{
-        height: 30px;
-        width: 30px;
-    }
-    .language-select.open .languageOption-items {
-        width: 70%;
-        margin: 0 10px;
-    }
-    header::before {
-        height: 83vh;
-        border-radius: 0 0 30px 30px;
-        background: radial-gradient(ellipse, var(--color-background) 75%, var(--color-primary) 300%);
-    }
-    .about-me{
-        display: flex;
-        flex-direction: column;
-        margin-left: 0;
-        font-size: 80%;
-    }
-    .about-me img {
-        width: 80%;
-        margin-left: 0;
-    }
-    .about-me article{
-        text-align: center;
-        margin: 0 10%;
-    }
-    .about-me h1 {
-        font-size: var(--font-size-xl);
-    }
-    .about-me p {
-        width: 100%;
-        margin: 10px 0;
-    }
-    .timeline-item {
-        margin-top: 20px;
-        display: flex;
-        height: 80%;
-        width: 90%;
-        flex-direction: column;
-    }
-    .timeline-2020 .timeline-item .timeline-skill-level,
-    .timeline-2022 .timeline-item .timeline-skill-level,
-    .timeline-2024 .timeline-item .timeline-skill-level{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 100%;
-        padding: 15px;
-        margin-bottom: 10px;
-    }
-    .skill{
-        margin: 0;
-    }
-    .skill li{
-        font-size: 90%;
-    }
-    .timeline-contnet{
-        width: 100%;
-        font-size: 90%
-    }
-    .content li{
-        font-size: 100%;
-    }
-    .timeline-2020,
-    .timeline-2022,
-    .timeline-2024{
-        margin-top: 5%;
-        height: 80%;
-        align-items: center;
-    }
-    .timeline-2020::before,
-    .timeline-2022::before,
-    .timeline-2024::before {
-        margin: 0 0 0 0;
-        width: 50%;
-        font-size: 40px;
-    }
-    .Project {
-        flex-direction: column;
-        width: 90%;
-        height: 600px;
-        margin: 20px 5%;
-    }
-    .Project article {
-        width: 90%;
-        margin: 10px;
-    }
-    .Project h3 {
-        margin: 0;
-    }
-    .Project p {
-        font-size: 25px;
-        margin: 0;
-    }
-    footer{
-        padding: 10px 15px;
-    }
-    address{
-        width: 350px;
-        margin: 20px 30px;
-        padding: 20px;
-        background-color: var(--color-background);
-        color: var(--color-text);
-        border-radius: 20px;
-    }
-    .footer-up .footer-content li{
-        margin-bottom: 5px;
-    }
-    .footer-up {
-        display: flex;
-        flex-direction: column;
-        font-size: 90%;
-        margin: 20px;
-    }
 }

@@ -8,19 +8,23 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentLang = localStorage.getItem("language") || "en";
     //For menu
     const selectedOption = document.querySelector(".about-me-selected-option");
-    const menuItems = document.querySelectorAll('nav .menu li a');
+    const menuItemshref = document.querySelectorAll('.menu li a');
+    const menuItems = document.querySelectorAll('.menu-dropdown li');
     //For theme toggle
     const themeToggle = document.getElementById('theme-toggle');
     //For default theme
     let currentTheme = localStorage.getItem("theme") || "light";
     //For footer backup
     const footerTop = document.querySelector('.footer-backup');
+    const footerToggle = document.querySelector('.footer-toggle');
     //For progressbar
     const progressbar = document.querySelectorAll('.progress');
+    //For animation elements
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const timelineContents = document.querySelectorAll('.timeline-contnet .content');
+    const projectSection = document.querySelector('.Project');
 
     //For progressbar animation
-    progressbarAnimation();
-    //For progressbar
     function progressbarAnimation(){
         progressbar.forEach(bar => {
             const width = bar.getAttribute('data-width');
@@ -28,6 +32,64 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Animation observer function
+    function setupIntersectionObserver() {
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    if (entry.target.classList.contains('timeline-item')) {
+                        const contents = entry.target.querySelectorAll('.content');
+                        contents.forEach((content, index) => {
+                            setTimeout(() => {
+                                content.classList.add('visible');
+                            }, 300 * index);
+                        });
+                    }
+                }
+            });
+        }, options);
+
+        // 為頁腳切換按鈕創建單獨的觀察器
+        const footerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    footerToggle.classList.add('visible');
+                } else {
+                    footerToggle.classList.remove('visible');
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '100px 0px 0px 0px',
+            threshold: 0.1
+        });
+
+        // Observe timeline items
+        timelineItems.forEach(item => {
+            observer.observe(item);
+        });
+
+        // Observe project section
+        if (projectSection) {
+            observer.observe(projectSection);
+        }
+
+        // 觀察頁腳元素
+        const footer = document.querySelector('footer');
+        if (footer) {
+            footerObserver.observe(footer);
+        }
+    }
+
+    // Call the setup function
+    setupIntersectionObserver();
  
     // Apply saved theme
     if (currentTheme === "dark") {
@@ -59,44 +121,75 @@ document.addEventListener('DOMContentLoaded', () => {
     loadTranslations(currentLang);
 
     //menu-line
-    menuItems.forEach(item => {
+    menuItemshref.forEach(item => {
         item.addEventListener('click', function() {
-            menuItems.forEach(i => i.classList.remove('active'));
-            this.classList.add('active');
-
+            if(window.innerWidth >= 768){
+                menuItemshref.forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            }
         });
     });
     //open menu
     selectedOption.addEventListener('click',()=>{
-        menuSelect.classList.toggle('active');
+        if(window.innerWidth <= 768){
+            menuSelect.classList.toggle('active');
+        }
+        menuItems.forEach(item => {
+            item.addEventListener('click', function() {
+                if(window.innerWidth <= 768){
+                    menuSelect.classList.remove('active');
+                }
+            });
+        });
     })
+    function debounce(func, wait) {
+        let timeout;
+        return function() {
+            const context = this;
+            const args = arguments;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(context, args), wait);
+        };
+    }
+    
 
     //moving screen action 1. active menuItems 2. in the middle of screen, change the text of selectedOption
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', debounce(function() {
         let current = '';
         const sections = document.querySelectorAll('section');
+        
+        // 檢查是否滾動到頁面底部
+        const scrollPosition = window.scrollY + window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        
+        // 當滾動到頁面底部附近時顯示頁腳切換按鈕
+        if (documentHeight - scrollPosition < 300) {
+            footerToggle.classList.add('visible');
+        }
+        
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
             if (window.scrollY >= sectionTop - sectionHeight / 4) {
                 current = section.getAttribute('id');
-                menuItems.forEach(item => {
+                menuItemshref.forEach(item => {
                     item.classList.remove('active');
                     if (item.getAttribute('href').substring(1) === current) {
-                        item.classList.add('active');
-                        selectedOption.textContent = item.textContent;
-                        menuSelect.classList.remove('active');
+                        if(window.innerWidth <= 768){
+                            selectedOption.textContent = item.textContent;
+                        }else{
+                            item.classList.add('active');
+                        }
                     }
-                    item.addEventListener("click", () => {
-                        item.classList.remove('active');
-                        selectedOption.textContent = item.textContent;
-                    });
+                    if(item.getAttribute('href').substring(1) === 'timeline'){
+                        progressbarAnimation();
+                    }
                 });
-
+            
             }
         });
+    }, 50));
 
-    });
 
     //For translation
     async function loadTranslations(lang) {

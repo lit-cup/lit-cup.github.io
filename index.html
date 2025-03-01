@@ -4,39 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CYTlit-cup</title>
-    <link href="index.css" rel="stylesheet">
+    <link href="index.css?v=1.0.0" rel="stylesheet">
+    <link href="reponsive.css?v=1.0.0" rel="stylesheet">
     <link rel="icon" href="./images/lit3.1 1.svg" type="image/svg+xml">
 </head>
 <body>
     <header>
-        <nav class="guideline">
+        <div class="guideline">
             <nav class="menu">
                 <ul class="nav-links">
                     <li><a href="#about-me-option" class="about-me-selected-option" data-lang="About-me">關於我</a></li>
                     <ul class="menu-dropdown">
-                        <li><a href="#about-me" data-lang="About-me">關於我</a></li>
+                        <li><a class="active" href="#about-me" data-lang="About-me">關於我</a></li>
                         <li><a href="#timeline" data-lang="Timeline">學習與經歷</a></li>
                         <li><a href="#Project" data-lang="Projects">作品集</a></li>
                     </ul>
                 </ul>
                 <div class="language-select">
                     <div class="language-option">
-                        <img src="./images/translate.svg" alt="icon" loading="lazy">
+                        <img src="./images/translate.svg" alt="translate-icon" loading="lazy">
                     </div>
                     <div class="languageOption-items">
                         <div data-lang="zh">
-                            <img src="./images/TW.svg" alt="icon" loading="lazy">
+                            <img src="./images/TW.svg" alt="TW-icon" loading="lazy">
                         </div>
                         <div data-lang="en">
-                            <img src="./images/EN.svg" alt="icon" loading="lazy">
+                            <img src="./images/EN.svg" alt="EN-icon" loading="lazy">
                         </div>
                         <div data-lang="ja">
-                            <img src="./images/JP.svg" alt="icon" loading="lazy">
+                            <img src="./images/JP.svg" alt="JP-icon" loading="lazy">
                         </div>
                     </div>
                 </div>
             </nav>
-        </nav>   
+        </div>   
     </header>
     <main>
         <section class="about-me" data-value="關於我" id="about-me">
@@ -56,19 +57,25 @@
                 <div class="timeline-item">
                     <div class="timeline-skill-level">
                         <div class="skill">
-                            <li>C/C++</li>
+                            <ul>
+                                <li>C/C++</li>
+                            </ul>    
                             <div class="progress-bar">
                                 <div class="progress" data-width="60"></div>
                             </div>
                         </div>
                         <div class="skill">
-                            <li>Java</li>
+                            <ul>
+                                <li>Java</li>
+                            </ul>
                             <div class="progress-bar">
                                 <div class="progress" data-width="70"></div>
                             </div>
                         </div>
                         <div class="skill">
-                            <li>HTML/CSS</li>
+                            <ul>
+                                <li>HTML/CSS</li>
+                            </ul>
                             <div class="progress-bar">
                                 <div class="progress" data-width="30"></div>
                             </div>
@@ -94,13 +101,17 @@
                 <div class="timeline-item">
                     <div class="timeline-skill-level">
                         <div class="skill">
-                            <li>Python</li>
+                            <ul>
+                                <li>Python</li>
+                            </ul>
                             <div class="progress-bar">
                                 <div class="progress" data-width="80" ></div>
                             </div>
                         </div>
                         <div class="skill">
-                            <li data-lang="Skill-linux">Linux環境</li>
+                            <ul>
+                                <li data-lang="Skill-linux">Linux環境</li>
+                            </ul>
                             <div class="progress-bar">
                                 <div class="progress" data-width="70"></div>
                             </div>
@@ -124,13 +135,17 @@
                 <div class="timeline-item">
                     <div class="timeline-skill-level">
                         <div class="skill">
-                            <li>JavaScript</li>
+                            <ul>
+                                <li>JavaScript</li>
+                            </ul>
                             <div class="progress-bar">
                                 <div class="progress" data-width="70"></div>
                             </div>
                         </div>
                         <div class="skill">
-                            <li>ReactJS</li>
+                            <ul>
+                                <li>ReactJS</li>
+                            </ul>
                             <div class="progress-bar">
                                 <div class="progress" data-width="30"></div>
                             </div>
@@ -150,29 +165,39 @@
             </div>
         </section>
         <section class="Project" data-value="作品集" id="Project">
+            <!-- TODO: handle multiple projects -->
+            <!-- TODO: add fliter function -->
+            <!--TODO: fix CSS-->
+            <!-- TODO: add project detail page -->
             <article>
-                <h3 data-lang="P-Name">專案名稱</h3>
-                <p data-lang="Title">標題開頭</p>
-                <p data-lang="ReleaseTime">時間</p>
+                <figure>
+                    <p data-lang="Title">標題開頭</p>
+                    <figcaption data-lang="P-Name">專案名稱</figcaption>
+                    <time data-lang="ReleaseTime">時間</time>
+                </figure>
             </article>
             <article>
-                <h3 data-lang="P-Name">專案名稱</h3>
-                <p data-lang="Title">標題開頭</p>
-                <p data-lang="ReleaseTime">時間</p>
+                <figure>
+                    <p data-lang="Title">標題開頭</p>
+                    <figcaption data-lang="P-Name">專案名稱</figcaption>
+                    <time data-lang="ReleaseTime">時間</time>
+                </figure>
             </article>
             <article>
-                <h3 data-lang="P-Name">專案名稱</h3>
-                <p data-lang="Title">標題開頭</p>
-                <p data-lang="ReleaseTime">時間</p>
+                <figure>
+                    <p data-lang="Title">標題開頭</p>
+                    <figcaption data-lang="P-Name">專案名稱</figcaption>
+                    <time data-lang="ReleaseTime">時間</time>
+                </figure>
             </article>
         </section>
         <div class="footer-toggle">
-            <div class="theme-toggle" id="theme-toggle">
-                <span class="icon sun-icon">☀️</span>
-                <span class="icon moon-icon">🌙</span>
+            <div class="theme-toggle" id="theme-toggle" tabindex="0" aria-label="ThemeSwitch" aria-pressed="false">
+                <span aria-label="light-mode" class="icon sun-icon">☀️</span>
+                <span aria-label="dark-mode" class="icon moon-icon">🌙</span>
             </div>
             <div class="footer-backup">
-                <span>🔝</span>
+                <span aria-label="BackToTop" tabindex="0">🔝</span>
             </div>
         </div>
         <footer>
@@ -181,9 +206,9 @@
                     <h3 data-lang="Contact">聯繫方式</h3>
                     <ul>
                         <li>Email:  stuart.yitingchen@gmail.com</li>
-                        <li>Github:<a href = "https://github.com/lit-cup" target="_blank">  lit-cup</a></li>
+                        <li>Github:<a href="https://github.com/lit-cup" target="_blank" rel="noopener noreferrer">lit-cup</a></li>
                         <li>LinkedIn:   (building)</li>
-                        <li><a href = "https://lit-cup.github.io" target="_blank" data-lang="Portfolio">個人網站:   </a></li>
+                        <li><a href = "https://lit-cup.github.io" target="_blank" data-lang="Portfoliorel="noopener noreferrer">個人網站:   </a></li>
                     </ul>
                 </address>
                 <h2 data-lang="footer">歡迎聯繫我或查看我的作品集，期待與您合作!!</h2>
@@ -193,6 +218,6 @@
             </div>
         </footer>
     </main>
-    <script src="./js/index.js" defer></script>
+    <script src="./js/index.js?v=1.0.0" defer></script>
 </body>
 </html>
