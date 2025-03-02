@@ -3,13 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const selected = document.querySelector('.language-option');
     const languageOptionItems = document.querySelector('.languageOption-items');
     const languageSelect = document.querySelector('.language-select');
-    const menuSelect = document.querySelector('.nav-links');
+    const menuSelect = document.querySelector('.menu-nav-links');
     //For default language 
     let currentLang = localStorage.getItem("language") || "en";
     //For menu
     const selectedOption = document.querySelector(".about-me-selected-option");
-    const menuItemshref = document.querySelectorAll('.menu li a');
+    const menuItemshref = document.querySelectorAll('.menu-dropdown-item');
     const menuItems = document.querySelectorAll('.menu-dropdown li');
+    const menuDropdown = document.querySelector('.menu-dropdown');
     //For theme toggle
     const themeToggle = document.getElementById('theme-toggle');
     //For default theme
@@ -21,8 +22,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressbar = document.querySelectorAll('.progress');
     //For animation elements
     const timelineItems = document.querySelectorAll('.timeline-item');
-    const timelineContents = document.querySelectorAll('.timeline-contnet .content');
-    const projectSection = document.querySelector('.Project');
+    const timelineContents = document.querySelectorAll('timeline-content--describe');
+    const projectSection = document.querySelector('.project');
+    //For project filtering
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectItems = document.querySelectorAll('.project-item');
+
+    // Project filtering functionality
+    function setupProjectFiltering() {
+        if (filterButtons.length > 0 && projectItems.length > 0) {
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Get filter value
+                    const filterValue = button.getAttribute('data-filter');
+                    
+                    // Filter projects
+                    projectItems.forEach(item => {
+                        const category = item.getAttribute('data-category');
+                        
+                        if (filterValue === 'all' || filterValue === category) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        }
+    }
 
     //For progressbar animation
     function progressbarAnimation(){
@@ -45,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                     if (entry.target.classList.contains('timeline-item')) {
-                        const contents = entry.target.querySelectorAll('.content');
+                        const contents = entry.target.querySelectorAll('.timeline-content--describe');
                         contents.forEach((content, index) => {
                             setTimeout(() => {
                                 content.classList.add('visible');
@@ -88,8 +121,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Call the setup function
+    // Call the setup functions
     setupIntersectionObserver();
+    setupProjectFiltering();
  
     // Apply saved theme
     if (currentTheme === "dark") {
@@ -132,12 +166,12 @@ document.addEventListener('DOMContentLoaded', () => {
     //open menu
     selectedOption.addEventListener('click',()=>{
         if(window.innerWidth <= 768){
-            menuSelect.classList.toggle('active');
+            menuDropdown.classList.toggle('active');
         }
         menuItems.forEach(item => {
             item.addEventListener('click', function() {
                 if(window.innerWidth <= 768){
-                    menuSelect.classList.remove('active');
+                    menuDropdown.classList.remove('active');
                 }
             });
         });
@@ -239,7 +273,7 @@ document.addEventListener("click", function (event) {
     const selected = document.querySelector('.language-option');
     const languageOptionItems = document.querySelector('.languageOption-items');
     const languageSelect = document.querySelector('.language-select');
-    const menuSelect = document.querySelector('.nav-links');
+    const menuSelect = document.querySelector('.menu-nav-links');
     const selectedOption = document.querySelector(".about-me-selected-option");
     const dropdownItems = document.querySelectorAll(".menu-dropdown li")
 

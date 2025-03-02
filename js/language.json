@@ -25,6 +25,10 @@
         "P-Name": "專案名稱",
         "Title": "標題開頭",
         "ReleaseTime": "時間",
+        "Filter-All": "全部",
+        "Filter-Web": "網頁開發",
+        "Filter-App": "應用程式",
+        "Filter-Other": "其他",
         "Contact": "聯繫方式",
         "Portfolio": "個人網站",
         "footer": "歡迎聯繫我或查看我的作品集，期待與您合作!!"
@@ -56,6 +60,10 @@
     "P-Name": "Project Name",
     "Title": "Title",
     "ReleaseTime": "ReleaseDate",
+    "Filter-All": "All",
+    "Filter-Web": "Web Development",
+    "Filter-App": "Applications",
+    "Filter-Other": "Others",
     "Contact": "Contact",
     "Portfolio": "Personal Website",
     "footer": "Feel free to contact me or check out my portfolio. Looking forward to working with you!"
@@ -87,6 +95,10 @@
     "P-Name": "プロジェクト名",
     "Title": "題名",
     "ReleaseTime": "リリース日",
+    "Filter-All": "すべて",
+    "Filter-Web": "ウェブ開発",
+    "Filter-App": "アプリケーション",
+    "Filter-Other": "その他",
     "Contact": "連絡先",
     "Portfolio": "個人ウェブサイト",
     "footer": "ぜひ私にご連絡いただくか、ポートフォリオをご覧ください。一緒に仕事ができることを楽しみにしています！"

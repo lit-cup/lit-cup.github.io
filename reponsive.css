@@ -1,16 +1,12 @@
 @media (min-width: 600px) and (max-width: 1024px) {
     .menu{
-        justify-content: space-around;
+        justify-content: space-between;
         width: 100%;
     }
-    .menu .nav-links{
-        width: 100%;
-    }
-    .menu .nav-links li{
+    .menu-nav-links li{
         margin-left: 20px;
     }
-    .menu li a{
-        font-size: 20px;
+    .menu-dropdown-item{
         text-align: start;
         margin: 0;
     }
@@ -19,24 +15,20 @@
         cursor: pointer;
         width: fit-content;
     }
-    .menu .about-me-selected-option::after{
+    .about-me-selected-option::after{
         display: none;
     }
-    .menu .nav-links .menu-dropdown{
+    .menu-dropdown{
         display: none;
         position: absolute;
-        width: max-content;
     }
-    .menu .nav-links.active .menu-dropdown{
+    .menu-dropdown.active{
         display: block;
-        width: 200px;
+        width: 500px;
         margin: 0;
         padding: 0;
         background: 0px;
         backdrop-filter: blur(0px);
-    }
-    .menu .nav-links.active .menu-dropdown li{
-        margin: 10px 20px;
     }
     .language-select{
         display: flex;
@@ -60,22 +52,29 @@
     .about-me{  
         height: 70vh;
     }
-    .about-me img {
-        width: 50%;
+    .info-image {
+        width: 40%;
     }
     .about-me h1 {
-        font-size: var(--font-size-xl);
+        font-size: 30px;
+    }
+    .about-me strong {
+        font-size: 13px;
+        width: 100%;
     }
     .about-me p {
         margin: 10px 0;
-        width: 80%;
+        width: 95%;
     }
     .progressbar.active{
         transition: width 1s ease-in 1.5s;
     }
     .timeline-item {
-        height: 400px;
-        grid-template-columns: 250px 300px;
+        height: 450px;
+        grid-template-columns: 250px 350px;
+    }
+    .timeline-content--describe-item{
+        font-size: 16px;
     }
     .timeline-2020,
     .timeline-2022,
@@ -91,19 +90,27 @@
         width: 50%;
         font-size: 40px;
     }
-    .Project {
+    .project {
         flex-direction: column;
         width: 90%;
         height: 600px;
+        margin: 40px;
     }
-    .Project article {
+    .project-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: scroll;
+        gap: 10px;
+    }
+    .project article {
         width: 90%;
         margin: 10px;
     }
-    .Project h3 {
+    .project h3 {
         margin: 0;
     }
-    .Project p {
+    .project p {
         font-size: 25px;
         margin: 0;
     }
@@ -136,57 +143,50 @@
         justify-content: space-between;
         width: 100%;
     }
-    .menu .nav-links{
-        width: 40%;
+    .menu-nav-links li{
+        margin-left: 15px;
     }
-    .menu .nav-links li{
-        margin-left: 10px;
-    }
-    .menu li a{
-        font-size: 20px;
+    .menu-dropdown-item{
         text-align: start;
         margin: 0;
     }
     .menu .about-me-selected-option{
         display: block;
         cursor: pointer;
-        
+        width: fit-content;
     }
-    .menu .about-me-selected-option::after{
+    .about-me-selected-option::after{
         display: none;
     }
-    .menu .nav-links .menu-dropdown{
+    .menu-dropdown{
         display: none;
         position: absolute;
-        padding: 0px;
     }
-    .menu .nav-links.active .menu-dropdown{
+    .menu-dropdown.active{
         display: block;
-        width: 200px;
-        margin: 0px;
+        width: 500px;
+        margin: 0;
+        padding: 0;
         background: 0px;
         backdrop-filter: blur(0px);
     }
-    .menu-dropdown li{
-        margin-top: 10px;
-    }
-
     .language-select{
         display: flex;
         flex-direction: column;
         align-items: end;
+        margin: 0px 20px;
     }
     .language-option{
         height: 30px;
         width: 30px;
     }
     .language-select.open .languageOption-items {
-        width: 70%;
-        margin: 0 10px;
+        width: 20%;
+        margin: 0 20px;
     }
     header::before {
-        height: 73vh;
-        border-radius: 0 0 30px 30px;
+        height: 75vh;
+        border-radius: 0 0 60px 60px;
         background: radial-gradient(ellipse, var(--color-background) 75%, var(--color-primary) 300%);
     }
     .about-me{
@@ -204,22 +204,22 @@
         text-align: center;
     }
     .about-me h1 {
-        font-size: var(--font-size-xl);
+        font-size: 30px;
     }
     .about-me p {
         width: 100%;
-        margin: 10px 0;
+        margin: 10px 0px;
     }
     .timeline-item {
         margin-top: 20px;
         display: flex;
         height: 80%;
-        width: 90%;
+        width: 80%;
         flex-direction: column;
     }
-    .timeline-2020 .timeline-item .timeline-skill-level,
-    .timeline-2022 .timeline-item .timeline-skill-level,
-    .timeline-2024 .timeline-item .timeline-skill-level{
+    .timeline-2020 .timeline-skill-level,
+    .timeline-2022 .timeline-skill-level,
+    .timeline-2024 .timeline-skill-level{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -230,14 +230,17 @@
     .skill{
         margin: 0;
     }
-    .skill li{
+    .skill-list{
         font-size: 90%;
     }
+    .timeline-item{
+        align-items: center;
+    }
     .timeline-contnet{
-        width: 100%;
+        width: 300px;
         font-size: 90%
     }
-    .content li{
+    .timeline-content--describe-item{
         font-size: 100%;
     }
     .timeline-2020,
@@ -254,35 +257,49 @@
         width: 50%;
         font-size: 40px;
     }
-    .Project {
+    .project {
         flex-direction: column;
         width: 90%;
         height: 600px;
-        margin: 20px 5%;
+        margin: 20px;
     }
-    .Project article {
-        width: 90%;
+    .project-filter{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 80%;
+    }
+    .project-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: scroll;
+        gap: 10px;
+        height: 100%;
+    }
+    .project article {
+        width: 95%;
         margin: 10px;
     }
-    .Project h3 {
+    .project figure{
+        height: 300px;
+        width: 90%;
+    }
+    .project h3 {
         margin: 0;
     }
-    .Project p {
+    .project p {
         font-size: 25px;
         margin: 0;
     }
     footer{
         padding: 10px 15px;
     }
-    address{
+    .footer-content{
         width: 350px;
         margin: 20px 30px;
         padding: 20px;
-        background-color: var(--color-background);
-        color: var(--color-text);
-        border-radius: 20px;
     }
-    .footer-up .footer-content li{
+    .footer-content--list--item{
         margin-bottom: 10px;
         font-size: 15px;
     }
