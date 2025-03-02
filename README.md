@@ -19,7 +19,6 @@ Visit the live website: [https://lit-cup.github.io](https://lit-cup.github.io)
 - **Interactive Timeline**: Showcasing my learning journey and skills
 - **Project Showcase**: Displaying my portfolio projects
 - **Project Filtering**: Filter projects by category or technology
-- **Smart Header Navigation**: Header that shows when scrolling up and hides when scrolling down
 - **Contact Information**: Easy access to my contact details
 
 ## Technologies Used
@@ -308,66 +307,9 @@ Animations are implemented with progressive enhancement in mind:
 }
 ```
 
-### Smart Header Navigation
+### Menu Animation Effects
 
-The website features a smart header that shows when scrolling up and hides when scrolling down, providing more screen space while browsing content.
-
-```javascript
-// Header scroll behavior
-function handleHeaderScroll() {
-  const currentScrollTop = window.scrollY || document.documentElement.scrollTop;
-
-  // Always show header at the top of the page
-  if (currentScrollTop <= 10) {
-    guideline.classList.remove("header-hidden");
-    return;
-  }
-
-  // Show header when scrolling up, hide when scrolling down
-  if (currentScrollTop < lastScrollTop) {
-    guideline.classList.remove("header-hidden");
-  } else if (currentScrollTop > lastScrollTop && currentScrollTop > 50) {
-    guideline.classList.add("header-hidden");
-  }
-
-  lastScrollTop = currentScrollTop;
-}
-```
-
-#### Header Animation Techniques
-
-The header uses several animation techniques for smooth transitions:
-
-```css
-/* Base header styles */
-.guideline {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/* Hidden header state */
-.guideline.header-hidden {
-  transform: translateY(-100%);
-  opacity: 0;
-}
-```
-
-The header animations are optimized for performance:
-
-1. **Transform Instead of Position**: Using `transform: translateY()` instead of changing `top` property for better performance
-2. **Composite Properties**: Animating only `transform` and `opacity` which are GPU-accelerated
-3. **Transition Timing**: Carefully tuned ease function for natural movement
-4. **Debounced Scroll Events**: Preventing excessive calculations during rapid scrolling
-
-#### Menu Animation Effects
-
-The menu elements use various animation techniques:
+The menu elements use various animation techniques for smooth interactions:
 
 ```css
 /* Menu item hover effect */
@@ -399,6 +341,14 @@ The menu elements use various animation techniques:
   animation: slideInFromTop 0.3s ease forwards;
 }
 ```
+
+The menu animations enhance user experience through:
+
+1. **Subtle Hover Effects**: Underline animations that provide visual feedback
+2. **Smooth Transitions**: Gentle transitions between menu states
+3. **Mobile Adaptations**: Different animation styles for mobile vs desktop
+4. **Visual Hierarchy**: Animations that help establish visual hierarchy
+5. **Consistent Timing**: Carefully tuned timing functions for natural movement
 
 ### Project Filtering
 
@@ -445,7 +395,6 @@ CSS media queries are used to adjust layouts, font sizes, and spacing for differ
 - Grid layout for projects that adapts to screen size
 - Flexible typography with clamp() for responsive font sizing
 - Optimized images and layouts for different devices
-- Smart header that shows/hides based on scroll direction
 
 ### Recent Responsive Design Improvements
 
@@ -502,27 +451,21 @@ The website has recently undergone significant improvements:
    - Implemented a responsive grid layout for better project display
    - Improved project card design with tags and hover effects
 
-2. **Smart Header Navigation**:
-
-   - Implemented scroll-based header visibility (shows when scrolling up, hides when scrolling down)
-   - Added smooth transitions for header appearance/disappearance
-   - Ensured header is always visible at the top of the page
-
-3. **Responsive Design Overhaul**:
+2. **Responsive Design Overhaul**:
 
    - Completely rebuilt the responsive design structure
    - Improved organization of media queries for better maintainability
    - Enhanced mobile menu functionality
    - Optimized layouts for all screen sizes
 
-4. **Technical Improvements**:
+3. **Technical Improvements**:
 
    - Added RGB color variables for advanced CSS effects like backdrop filters
    - Implemented debounce function for scroll events to improve performance
    - Enhanced JavaScript event handling for better cross-device compatibility
    - Improved CSS transitions for smoother animations
 
-5. **Animation Enhancements**:
+4. **Animation Enhancements**:
    - Added new keyframe animations for various UI elements
    - Implemented hardware-accelerated animations using transform3d
    - Created staggered animations for timeline content
