@@ -432,6 +432,83 @@ The website is compatible with modern browsers:
 - Safari (latest)
 - Edge (latest)
 
+## Testing
+
+The website includes a comprehensive test suite using Jest and Testing Library. The tests cover key functionality including:
+
+### Test Setup
+
+To run the tests:
+
+```bash
+# Install dependencies
+npm install
+
+# Run tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+```
+
+### Test Coverage
+
+The test suite includes tests for:
+
+1. **Theme Toggle**: Tests for toggling between light and dark themes and persisting the theme preference in localStorage.
+2. **Language Selector**: Tests for changing languages, updating UI elements, and persisting language preferences.
+3. **Project Filtering**: Tests for filtering projects by category and ensuring the correct projects are displayed.
+4. **Intersection Observer Animations**: Tests for adding animation classes to elements when they enter the viewport.
+5. **Debounce Function**: Tests for ensuring the debounce function properly limits the rate of function calls.
+6. **Scroll Behavior**: Tests for header visibility based on scroll direction and position, ensuring the header shows when scrolling up and hides when scrolling down.
+
+### Test Structure
+
+Tests are organized in the `__tests__` directory and follow a consistent pattern:
+
+```
+__tests__/
+  ├── theme-toggle.test.js
+  ├── language-selector.test.js
+  ├── project-filter.test.js
+  ├── intersection-observer.test.js
+  ├── debounce.test.js
+  └── scroll-behavior.test.js
+```
+
+Each test file includes:
+
+- Setup code that creates a mock DOM environment
+- Tests for specific functionality
+- Assertions to verify expected behavior
+
+### Continuous Integration
+
+The project uses GitHub Actions for continuous integration to ensure tests pass on every push and pull request:
+
+```
+.github/
+  └── workflows/
+      └── test.yml
+```
+
+The CI workflow:
+
+- Runs on both Node.js 16.x and 18.x environments
+- Automatically executes all tests when code is pushed to the main branch
+- Provides immediate feedback if any tests fail
+- Ensures code quality is maintained throughout development
+
+To view the CI status, check the Actions tab in the GitHub repository.
+
+### Mocking
+
+The tests use several mocks to simulate browser functionality:
+
+- **localStorage**: Mocked to test theme and language persistence
+- **IntersectionObserver**: Mocked to test scroll-based animations
+- **fetch**: Mocked to test loading translations
+
 ## Future Enhancements
 
 - Add more projects to the portfolio section
@@ -466,6 +543,7 @@ The website has recently undergone significant improvements:
    - Improved CSS transitions for smoother animations
 
 4. **Animation Enhancements**:
+
    - Added new keyframe animations for various UI elements
    - Implemented hardware-accelerated animations using transform3d
    - Created staggered animations for timeline content
@@ -474,6 +552,14 @@ The website has recently undergone significant improvements:
    - Optimized animation performance with will-change property
    - Enhanced scroll-triggered animations with Intersection Observer
    - Implemented smooth transitions for theme switching
+
+5. **Testing Implementation**:
+   - Added comprehensive Jest test suite for key functionality
+   - Implemented tests for theme toggling, language selection, and project filtering
+   - Created tests for intersection observer animations and debounce function
+   - Added tests for scroll behavior functionality
+   - Set up GitHub Actions workflow for continuous integration
+   - Ensured cross-browser compatibility with modern browsers
 
 ## Contributing
 
