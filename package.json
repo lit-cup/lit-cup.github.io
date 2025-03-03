@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "minify-css": "cleancss -o index.min.css index.css",
+    "minify-responsive-css": "cleancss -o reponsive.min.css reponsive.css",
+    "minify-js": "uglifyjs js/index.js -o js/index.min.js",
+    "minify-all": "npm run minify-css && npm run minify-responsive-css && npm run minify-js"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +20,7 @@
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "babel-jest": "^29.7.0",
+    "clean-css-cli": "^5.6.3",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0"
   },

@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     // Apply saved theme
-    function applyTheme(){
+    function setTheme(){
         if (currentTheme === "dark") {
             darkTheme();
         } else {
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Call the setup functions
     setupIntersectionObserver();
     setupProjectFiltering();
-    applyTheme();
+    setTheme();
     // Theme toggle functionality
     themeToggle.addEventListener('click', () => {
         if (currentTheme === "light") {
@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
             currentTheme = "light";
         }
         localStorage.setItem("theme", currentTheme);
-        applyTheme();
+        setTheme();
     });
 
     //footer-backup action
