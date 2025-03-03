@@ -1,30 +1,116 @@
 :root {
-    --color-primary: #FF5733;
-    --color-background: #FDFBF8;
+    /* Primary Colors */
+    --color-primary: #AE0000;
+    --color-primary-light: #D40000;
+    --color-primary-dark: #8B0000;
+    --color-primary-contrast: #FFFFFF;
+    
+    /* Secondary Colors */
     --color-secondary: #F5F5F5;
+    --color-secondary-light: #FFFFFF;
+    --color-secondary-dark: #E0E0E0;
+    
+    /* Accent Colors */
+    --color-accent: #FF4D4D;
+    --color-accent-light: #FF7373;
+    --color-accent-dark: #CC0000;
+    
+    /* Background Colors */
+    --color-background: #FDFBF8;
+    --color-background-alt: #F8F4F4;
+    --color-background-elevated: #FFFFFF;
+    
+    /* Text Colors */
     --color-text: #333333;
-    --color-text-shadow: rgba(0, 0, 0, 0.3);
-    --timeline-2020: yellow;
+    --color-text-light: #666666;
+    --color-text-lighter: #999999;
+    --color-text-contrast: #FFFFFF;
+    
+    /* Status Colors */
+    --color-success: #2E7D32;
+    --color-warning: #ED6C02;
+    --color-error: #D32F2F;
+    --color-info: #0288D1;
+    
+    /* Timeline Colors */
+    --timeline-2020: #FFD700;
     --timeline-2022: #FE9F01;
     --timeline-2024: #FE8701;
+    
+    /* Project Colors */
     --color-project-bg: rgba(255, 87, 51, 0.1);
     --color-project-article-bg: rgba(225, 87, 51, 0.3);
+    --color-project-title: #8B0000; /* Dark red with 7:1 contrast on light backgrounds */
+    --color-project-text: #333333; /* Dark gray with 12:1 contrast on light backgrounds */
+    --color-project-accent: #D40000; /* Bright red with 4.5:1 contrast on light backgrounds */
+    --color-project-border: #AE0000; /* Primary red */
+    --color-project-hover: rgba(174, 0, 0, 0.8); /* Primary with opacity */
+    
+    /* Shadow Colors */
+    --color-text-shadow: rgba(0, 0, 0, 0.3);
+    --color-shadow-light: rgba(0, 0, 0, 0.1);
+    --color-shadow-medium: rgba(0, 0, 0, 0.2);
+    
+    /* Animation Properties */
     --animation-duration: 1s;
     --animation-timing: ease-in-out;
     --transform-3d: translate3d(0, 0, 0);
 }
+
 [data-theme="dark"] {
-    --color-primary: #ff572d;
-    --color-background: #0c0706;
+    /* Primary Colors */
+    --color-primary: #FFE500;
+    --color-primary-light: #FFF04D;
+    --color-primary-dark: #CCB700;
+    --color-primary-contrast: #000000;
+    
+    /* Secondary Colors */
     --color-secondary: #420606;
+    --color-secondary-light: #631010;
+    --color-secondary-dark: #2D0404;
+    
+    /* Accent Colors */
+    --color-accent: #FFB800;
+    --color-accent-light: #FFC933;
+    --color-accent-dark: #CC9200;
+    
+    /* Background Colors */
+    --color-background: #0c0706;
+    --color-background-alt: #1A1311;
+    --color-background-elevated: #241B19;
+    
+    /* Text Colors */
     --color-text: #F5F5F5;
-    --color-text-shadow: rgba(255, 255, 255, 0.3);
+    --color-text-light: #CCCCCC;
+    --color-text-lighter: #999999;
+    --color-text-contrast: #000000;
+    
+    /* Status Colors */
+    --color-success: #4CAF50;
+    --color-warning: #FFA726;
+    --color-error: #EF5350;
+    --color-info: #29B6F6;
+    
+    /* Timeline Colors */
     --timeline-2020: #FFD700;
     --timeline-2022: #ffa600;
     --timeline-2024: #ff950a;
+    
+    /* Project Colors */
     --color-project-bg: rgba(255, 127, 80, 0.2);
     --color-project-article-bg: rgba(255, 127, 80, 0.4);
+    --color-project-title: #FFE500; /* Yellow with 15:1 contrast on dark backgrounds */
+    --color-project-text: #F5F5F5; /* Light gray with 16:1 contrast on dark backgrounds */
+    --color-project-accent: #FFF04D; /* Light yellow with 14:1 contrast on dark backgrounds */
+    --color-project-border: #FFD700; /* Gold with 13:1 contrast on dark backgrounds */
+    --color-project-hover: rgba(255, 229, 0, 0.8); /* Primary with opacity */
+    
+    /* Shadow Colors */
+    --color-text-shadow: rgba(255, 255, 255, 0.3);
+    --color-shadow-light: rgba(255, 255, 255, 0.1);
+    --color-shadow-medium: rgba(255, 255, 255, 0.2);
 }
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -168,6 +254,8 @@ header::before {
 }
 .language-option{
     margin: 10px;
+    width: 50px;
+    height: 50px;
 }
 .language-option img {
     display: block;
@@ -201,6 +289,7 @@ header::before {
 
 .language-select.open .languageOption-items {
     display: block;
+    align-items: center;
 }
 .about-me {
     display: flex;
@@ -413,7 +502,6 @@ header::before {
     min-height: 600px;
     width: 95%;
     z-index: -1;
-    color: var(--color-text);
     background: var(--color-project-bg);
     border-radius: 50px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -502,18 +590,20 @@ header::before {
 .project p {
     font-size: 28px;
     margin: 0 0 10px 0;
+    color: var(--color-project-title);
     animation: fadeIn 1.5s ease-in-out;
 }
 
 .project figcaption {
     font-size: 22px;
     font-weight: bold;
+    color: var(--color-project-text);
     margin: 10px 0;
 }
 
 .project time {
     font-size: 16px;
-    color: var(--color-text-secondary);
+    color: var(--color-project-text);
     margin-bottom: 15px;
 }
 
@@ -526,7 +616,8 @@ header::before {
 }
 
 .tag {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--color-text);
+    color: var(--color-background);
     padding: 4px 10px;
     border-radius: 12px;
     font-size: 14px;

@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     //For language option
-    const selected = document.querySelector('.language-option');
+    const languageOption = document.querySelector('.language-option');
     const languageOptionItems = document.querySelector('.languageOption-items');
     const languageSelect = document.querySelector('.language-select');
-    const menuSelect = document.querySelector('.menu-nav-links');
+    const languageOptionImg = document.querySelectorAll('.language-option-img');
     //For default language 
     let currentLang = localStorage.getItem("language") || "en";
     //For menu
@@ -121,17 +121,44 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function darkTheme(){
+        document.documentElement.setAttribute("data-theme", "dark");
+        languageOption.querySelector('img').src = "./images/dark-theme/translate_dark.svg";
+        languageOptionImg.forEach(item => {
+            if(item.getAttribute('alt') === 'TW-icon'){
+                item.src = "./images/dark-theme/tw_dark.svg";
+            }else if(item.getAttribute('alt') === 'EN-icon'){
+                item.src = "./images/dark-theme/en_dark.svg";
+            }else if(item.getAttribute('alt') === 'JP-icon'){
+                item.src = "./images/dark-theme/jp_dark.svg";
+            }
+        });
+    }
+    function lightTheme(){
+        document.documentElement.setAttribute("data-theme", "light");
+        languageOption.querySelector('img').src = "./images/light-theme/translate_light.svg";
+        languageOptionImg.forEach(item => {
+            if(item.getAttribute('alt') === 'TW-icon'){
+                item.src = "./images/light-theme/tw_light.svg";
+            }else if(item.getAttribute('alt') === 'EN-icon'){
+                item.src = "./images/light-theme/en_light.svg";
+            }else if(item.getAttribute('alt') === 'JP-icon'){
+                item.src = "./images/light-theme/jp_light.svg";
+            }
+        });
+    }
+    // Apply saved theme
+    function applyTheme(){
+        if (currentTheme === "dark") {
+            darkTheme();
+        } else {
+            lightTheme();
+        }
+    }
     // Call the setup functions
     setupIntersectionObserver();
     setupProjectFiltering();
- 
-    // Apply saved theme
-    if (currentTheme === "dark") {
-        document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-        document.documentElement.setAttribute("data-theme", "light");
-    }
-
+    applyTheme();
     // Theme toggle functionality
     themeToggle.addEventListener('click', () => {
         if (currentTheme === "light") {
@@ -142,6 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
             currentTheme = "light";
         }
         localStorage.setItem("theme", currentTheme);
+        applyTheme();
     });
 
     //footer-backup action
@@ -248,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     //open translate language
-    selected.addEventListener('click', () => {
+    languageOption.addEventListener('click', () => {
         languageSelect.classList.toggle('open');
     });
     
@@ -259,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
           let lang = selectedItem.getAttribute('data-lang');
           currentLang = lang;
           // tranform img src of language option
-          selected.innerHTML = `<img src="${imgSrc}" alt="icon" loading="lazy">`;
+          languageOption.innerHTML = `<img src="${imgSrc}" alt="icon" loading="lazy">`;
           // close language option
           languageSelect.classList.remove('open');
           // load translations
@@ -270,14 +298,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //close language option and menu when click outside
 document.addEventListener("click", function (event) {
-    const selected = document.querySelector('.language-option');
+    const languageOption = document.querySelector('.language-option');
     const languageOptionItems = document.querySelector('.languageOption-items');
     const languageSelect = document.querySelector('.language-select');
     const menuSelect = document.querySelector('.menu-nav-links');
     const selectedOption = document.querySelector(".about-me-selected-option");
     const dropdownItems = document.querySelectorAll(".menu-dropdown li")
 
-    if (!selected.contains(event.target) && !languageOptionItems.contains(event.target)) {
+    if (!languageOption.contains(event.target) && !languageOptionItems.contains(event.target)) {
         languageSelect.classList.remove("open");
     }
     if (!selectedOption.contains(event.target) && !Array.from(dropdownItems).some(item => item.contains(event.target))) {

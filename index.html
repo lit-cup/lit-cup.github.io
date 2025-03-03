@@ -3,36 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYTlit-cup</title>
+    <meta name="description" content="Yi-Ting Chen's personal website, showcasing his learning journey and portfolio.">
+    <title>CYT's Portfolio</title>
     <link href="index.css?v=1.2.0" rel="stylesheet">
     <link href="reponsive.css?v=1.2.0" rel="stylesheet">
-    <link rel="icon" href="./images/lit3.1 1.svg" type="image/svg+xml">
+    <link rel="icon" href="./images/personal-logo.svg" type="image/svg+xml">
 </head>
 <body>
     <header>
         <div class="guideline">
             <nav class="menu">
-                <ul class="menu-nav-links">
-                    <li><a class="about-me-selected-option" data-lang="About-me">關於我</a></li>
+                <div class="menu-nav-links">
+                    <p><a href="#about-me" class="about-me-selected-option" data-lang="About-me">關於我</a></p>
                     <ul class="menu-dropdown">
                         <li><a class="menu-dropdown-item active" href="#about-me" data-lang="About-me">關於我</a></li>
                         <li><a class="menu-dropdown-item" href="#timeline" data-lang="Timeline">學習與經歷</a></li>
                         <li><a class="menu-dropdown-item" href="#project" data-lang="Projects">作品集</a></li>
                     </ul>
-                </ul>
+                </div>
                 <div class="language-select">
                     <div class="language-option">
-                        <img src="./images/translate.svg" alt="translate-icon" loading="lazy">
+                        <img src="./images/light-theme/translate_light.svg" alt="translate-icon" loading="lazy">
                     </div>
                     <div class="languageOption-items">
                         <div data-lang="zh">
-                            <img class="language-option-img" src="./images/TW.svg" alt="TW-icon" loading="lazy">
+                            <img class="language-option-img" src="./images/light-theme/tw_light.svg" alt="TW-icon" loading="lazy">
                         </div>
                         <div data-lang="en">
-                            <img class="language-option-img" src="./images/EN.svg" alt="EN-icon" loading="lazy">
+                            <img class="language-option-img" src="./images/light-theme/en_light.svg" alt="EN-icon" loading="lazy">
                         </div>
                         <div data-lang="ja">
-                            <img class="language-option-img" src="./images/JP.svg" alt="JP-icon" loading="lazy">
+                            <img class="language-option-img" src="./images/light-theme/jp_light.svg" alt="JP-icon" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -41,7 +42,7 @@
     </header>
     <main>
         <section class="about-me" data-value="關於我" id="about-me">
-            <img src="./images/lit3.1 1.svg" alt="A emblem of Chen Yi Ting" class="info-image flicker performance-optimized" height="300px" width="300px" loading="lazy">
+            <img src="./images/personal-logo.svg" alt="A emblem of Chen Yi Ting" class="info-image flicker performance-optimized" height="300px" width="300px" loading="lazy">
             <article>
                 <h1 data-lang="Myname">陳奕廷</h1>
                 <h1 data-lang="JobTitle">前端開發者</h1> 
@@ -83,15 +84,15 @@
                     </div>
                     <div class="timeline-content">
                         <article class="timeline-content--describe">
-                            <li class="timeline-content--describe-item" data-lang="L-CC">學習C、C++</li>
+                            <h1 class="timeline-content--describe-item" data-lang="L-CC">學習C、C++</h1>
                             <p class="timeline-content--describe-item" data-lang="L-CC-Describe">掌握基本語法、資料結構。</p>
                         </article>    
                         <article class="timeline-content--describe">
-                            <li class="timeline-content--describe-item" data-lang="L-Java">學習Java</li>
+                            <h1 class="timeline-content--describe-item" data-lang="L-Java">學習Java</h1>
                             <p class="timeline-content--describe-item" data-lang="L-Java-Describe">掌握物件導向設計。</p>
                         </article>
                         <article class="timeline-content--describe">
-                            <li class="timeline-content--describe-item" data-lang="L-HTMLCSS">學習HTML/CSS</li>    
+                            <h1 class="timeline-content--describe-item" data-lang="L-HTMLCSS">學習HTML/CSS</h1>    
                             <p class="timeline-content--describe-item" data-lang="L-HTMLCSS-Describe">掌握基本程式語法。</p>
                         </article>
                     </div>
@@ -119,11 +120,11 @@
                     </div>
                     <div class="timeline-contnet">
                         <article class="timeline-content--describe">
-                            <li class="timeline-content--describe-item" data-lang="L-PY">學習Python</li>
+                            <h1 class="timeline-content--describe-item" data-lang="L-PY">學習Python</h1>
                             <p class="timeline-content--describe-item" data-lang="L-PY-Describe">掌握數據分析技巧</p>
                         </article>
                         <article class="timeline-content--describe">
-                            <li class="timeline-content--describe-item" data-lang="Collage-Side-Project">大學專題 - 智慧鐵捲門系統</li>
+                            <h1 class="timeline-content--describe-item" data-lang="Collage-Side-Project">大學專題 - 智慧鐵捲門系統</h1>
                             <p class="timeline-content--describe-item" data-lang="Collage-Side-Project-Describe">實作 Linux 開發環境。
                                 Android Studio 協作開發輔助APP。
                                 規劃設計MQTT通訊協定</p>
@@ -153,11 +154,11 @@
                     </div>
                     <div class="timeline-contnet">
                         <article class="timeline-content--describe">
-                            <li class="timeline-content--describe-item" data-lang="L-JS-React">學習JavaScript、ReactJS</li>
+                            <h1 class="timeline-content--describe-item" data-lang="L-JS-React">學習JavaScript、ReactJS</h1>
                             <p class="timeline-content--describe-item" data-lang="L-JS-React-Describe">基本語法以及案例</p>
                         </article>
                         <article class="timeline-content--describe">
-                            <li class="timeline-content--describe-item" data-lang="L-RWD">學習響應試網站設計</li>
+                            <h1 class="timeline-content--describe-item" data-lang="L-RWD">學習響應試網站設計</h1>
                             <p class="timeline-content--describe-item" data-lang="L-RWD-Describe">建立自己的個人網站、部屬 Github Page</p>
                         </article>
                     </div>
@@ -235,7 +236,7 @@
             </div>
         </section>
         <div class="footer-toggle">
-            <div class="theme-toggle" id="theme-toggle" tabindex="0" aria-label="ThemeSwitch" aria-pressed="false">
+            <div class="theme-toggle" id="theme-toggle" tabindex="0" aria-label="theme-toggle--themeswitch" aria-pressed="false">
                 <span aria-label="light-mode" class="icon sun-icon">☀️</span>
                 <span aria-label="dark-mode" class="icon moon-icon">🌙</span>
             </div>
@@ -246,7 +247,7 @@
         <footer class="footer">
             <div class="footer-up">
                 <address class="footer-content">
-                    <h3 class="footer-contact--title" data-lang="Contact">聯繫方式</h3>
+                    <h1 class="footer-contact--title" data-lang="Contact">聯繫方式</h3>
                     <ul class="footer-content--list">
                         <li class="footer-content--list--item">Email:  stuart.yitingchen@gmail.com</li>
                         <li class="footer-content--list--item">Github:<a href="https://github.com/lit-cup" target="_blank" rel="noopener noreferrer">lit-cup</a></li>

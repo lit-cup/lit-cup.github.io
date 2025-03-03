@@ -3,17 +3,15 @@
         justify-content: space-between;
         width: 100%;
     }
-    .menu-nav-links li{
-        margin-left: 20px;
-    }
     .menu-dropdown-item{
         text-align: start;
-        margin: 0;
+        margin-left: 20px;
     }
-    .menu .about-me-selected-option{
+    .about-me-selected-option{
         display: block;
         cursor: pointer;
         width: fit-content;
+        margin-left: 20px;
     }
     .about-me-selected-option::after{
         display: none;
@@ -143,17 +141,15 @@
         justify-content: space-between;
         width: 100%;
     }
-    .menu-nav-links li{
-        margin-left: 15px;
-    }
     .menu-dropdown-item{
         text-align: start;
-        margin: 0;
+        margin-left: 15px;
     }
-    .menu .about-me-selected-option{
+    .about-me-selected-option{
         display: block;
         cursor: pointer;
         width: fit-content;
+        margin-left: 15px;
     }
     .about-me-selected-option::after{
         display: none;
