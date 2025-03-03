@@ -127,9 +127,7 @@
   justify-content: center;
   align-items: center;
 }
-*,
-::after,
-::before {
+*,::after,::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -149,8 +147,7 @@ body {
   max-height: 950px;
 }
 main {
-  width: 100vw;
-  max-width: 1920px;
+  width: 100%;
 }
 header::before {
   content: "";
@@ -329,8 +326,7 @@ header::before {
   justify-content: center;
   align-items: baseline;
   height: 100%;
-  width: 100vw;
-  max-width: 1920px;
+  width: 100%;
   margin: 0;
 }
 .timeline-item {
@@ -453,7 +449,6 @@ header::before {
   align-items: center;
   margin: 50px;
   min-height: 600px;
-  width: 95%;
   z-index: -1;
   background: var(--color-project-bg);
   border-radius: 50px;
@@ -614,7 +609,7 @@ header::before {
   flex-direction: row;
   align-items: center;
   justify-content: end;
-  width: 100%;
+  width: 90%;
   opacity: 0;
   transform: translateX(100%);
   transition:
