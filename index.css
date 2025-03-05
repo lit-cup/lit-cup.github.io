@@ -33,7 +33,7 @@
   --color-text-shadow: rgba(0, 0, 0, 0.3);
   --color-shadow-light: rgba(0, 0, 0, 0.1);
   --color-shadow-medium: rgba(0, 0, 0, 0.2);
-  --animation-duration: 1s;
+  --animation-duration: 2s;
   --animation-timing: ease-in-out;
   --transform-3d: translate3d(0, 0, 0);
 }
@@ -301,7 +301,7 @@ header::before {
 .about-me article h1 {
   display: flex;
   flex-direction: column;
-  margin: auto;
+  margin: 0 auto;
 }
 .about-me h1 {
   font-size: clamp(20px, 5vw, 40px);
@@ -310,13 +310,34 @@ header::before {
 .about-me strong {
   color: var(--color-primary);
 }
+.contact-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  gap: 20px;
+  padding: 10px;
+  margin: 10px auto;
+  border: 3px dashed var(--color-primary);
+  border-radius: 20px;
+  animation: fadeIn 3s ease-in-out;
+}
+.contact-icon img {
+  width: clamp(20px, 5vw, 30px);
+  height: clamp(20px, 5vw, 30px);
+}
+.contact-icon img:hover {
+  transform: scale(1.1);
+}
+.contact-icon a {
+  width: clamp(20px, 5vw, 30px);
+  height: clamp(20px, 5vw, 30px);
+}
 .about-me p {
   width: 50%;
-  border: 2px dashed var(--color-primary);
-  color: var(--color-text);
   margin: 10px 0;
-  padding: 10px;
-  border-radius: 10px;
+  color: var(--color-text);
 }
 .timeline-2020,
 .timeline-2022,
@@ -609,7 +630,7 @@ header::before {
   flex-direction: row;
   align-items: center;
   justify-content: end;
-  width: 90%;
+  width: fit-content;
   opacity: 0;
   transform: translateX(100%);
   transition:
