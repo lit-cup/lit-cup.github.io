@@ -29,7 +29,7 @@
   --color-project-text: #333333;
   --color-project-accent: #d40000;
   --color-project-border: #ae0000;
-  --color-project-hover: rgba(174, 0, 0, 0.8);
+  --color-project-hover: rgba(248, 0, 0, 0.25);
   --color-text-shadow: rgba(0, 0, 0, 0.3);
   --color-shadow-light: rgba(0, 0, 0, 0.1);
   --color-shadow-medium: rgba(0, 0, 0, 0.2);
@@ -520,8 +520,8 @@ header::before {
 .project-item {
   display: flex;
   flex-direction: column;
-  background-color: var(--color-project-article-bg);
-  text-shadow: 0 4px 4px var(--color-text-shadow);
+  border: 2px solid var(--color-project-border);
+  background-color: var(--color-background);
   padding: 20px;
   border-radius: 20px;
   transform: scale(0.95);
@@ -545,16 +545,17 @@ header::before {
   animation: fadeIn 1s ease-in-out;
 }
 .project p {
-  font-size: 28px;
-  margin: 0 0 10px 0;
+  border-bottom: 2px dashed var(--color-project-title);
+  font-size: clamp(15px, 5vw, 25px);
+  padding: 10px 0;
   color: var(--color-project-title);
   animation: fadeIn 1.5s ease-in-out;
+  text-shadow: 0 4px 4px var(--color-text-shadow);
 }
 .project figcaption {
   font-size: 22px;
   font-weight: 700;
   color: var(--color-project-text);
-  margin: 10px 0;
 }
 .project time {
   font-size: 16px;

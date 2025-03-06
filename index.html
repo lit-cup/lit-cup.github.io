@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Yi-Ting Chen's personal website, showcasing his learning journey and portfolio.">
     <title>CYT's Portfolio | Font-end Developer</title>
-    <link href="index.css?v=1.2.0" rel="stylesheet">
-    <link href="reponsive.css?v=1.2.0" rel="stylesheet">
+    <link href="./css/index.css?v=1.2.0" rel="stylesheet">
+    <link href="./css/reponsive.css?v=1.2.0" rel="stylesheet">
+    <link href="./css/modal.css?v=1.2.0" rel="stylesheet">
     <link rel="icon" href="./images/personal-logo.svg" type="image/svg+xml">
 </head>
 <body>
@@ -180,15 +181,15 @@
             </div>
             <!-- Project container -->
             <div class="project-container">
-                <article class="project-item" data-category="web">
+                <article class="project-item" data-category="web" id="smart-door-system">
                     <figure>
-                        <p data-lang="Title">標題開頭</p>
-                        <figcaption data-lang="P-Name">個人網站</figcaption>
-                        <time data-lang="ReleaseTime">2024</time>
+                        <p data-lang="Title_gudproject">智慧鐵捲門系統</p>
+                        <figcaption data-lang="P-Name_gudproject">畢業專題</figcaption>
+                        <time data-lang="ReleaseTime_gudproject">2023/12</time>
                         <div class="project-tags">
-                            <span class="tag">HTML</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">JavaScript</span>
+                            <span class="tag">Android</span>
+                            <span class="tag">MQTT</span>
+                            <span class="tag">Linux</span>
                         </div>
                     </figure>
                 </article>
@@ -267,11 +268,12 @@
             </div>
         </footer>
     </main>
+    <script src="./js/ProjectManager.js?v=1.0.0" defer></script>
     <script src="./js/index.js?v=1.0.0" defer></script>
+
 </body>
 </html>
-
-<!-- Planning
-    add project update
+<!-- TODO:
+    2025/3/6 Done: add project update
     add themeManager
 -->

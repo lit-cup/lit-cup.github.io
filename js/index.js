@@ -29,6 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectItems = document.querySelectorAll('.project-item');
 
+
+
+    const projectManager = new ProjectManager(projectData);
+    document.querySelectorAll('.project-item').forEach(projectItem => {
+        projectItem.addEventListener('click', () =>{
+            const projectID = projectItem.getAttribute('id');
+            projectManager.openProject(projectID);
+        });
+    });
+
     // Project filtering functionality
     function setupProjectFiltering() {
         if (filterButtons.length > 0 && projectItems.length > 0) {

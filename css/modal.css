@@ -1,0 +1,143 @@
+.project-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 1000;
+}
+.modal-content {
+    background-color: var(--color-background);
+    border: 2px solid var(--color-project-accent);
+    animation: modalFadeIn 0.3s ease-in-out;
+    border-radius: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 3rem;
+    padding: 5rem;
+    height: 90%;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-text);
+    padding: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.modal-close:hover {
+    transform: scale(1.1);
+    color: var(--color-project-accent);
+}
+
+.modal-content h2 {
+    border-bottom: 2px dashed var(--color-project-title);
+    margin-bottom: 1.5rem;
+    color: var(--color-project-title);
+    font-size: 2rem;
+}
+
+.modal-content img {
+    height: 50%;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+}
+
+.project-details h3 {
+    color: var(--color-text);
+    margin: 1rem 0;
+    font-size: 1.25rem;
+}
+
+.project-details p {
+    color: var(--color-text);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.Technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tag {
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.875rem;
+    margin: 0 0.3rem;
+}
+
+.project-details ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+}
+
+.project-details li {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.project-links {
+    margin-top: 1.5rem;
+}
+
+.project-links a {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-project-accent);
+    color: var(--color-background);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: transform 0.2s ease;
+}
+
+.project-links a:hover {
+    transform: translateY(-2px);
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 1.5rem;
+        width: 95%;
+    }
+
+    .modal-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .project-details h3 {
+        font-size: 1.1rem;
+    }
+
+    .tag {
+        font-size: 0.8rem;
+    }
+}
