@@ -3,18 +3,23 @@
 
 const projectData = [
     {
-        id: 'smart-door-system',
-        title: 'Smart Door System',
-        description: 'A smart door system that automatically unlocks the door when you approach it.',
-        technologies: ['Android studio', 'MQTT', 'Linux'],
-        image: 'images/personal-logo.svg',
-        year: 2020,
-        githubLink: 'https://link-to-github',
+        id: 'smart-garage-door-system',
+        title: 'Smart Garage Door System',
+        description: 'A smart garage door system that detects when a user approaches and automatically unlocks the door via an MQTT-based communication system.',
+        technologies: ['Android studio', 'MQTT', 'Linux server', 'Java'],
+        image: 'images/GP.png',
+        year: '2023/12',
+        githubLink: '',
         challenges:[
-            'The door system should be able to detect the user approaching the door.',
-            'The door system should be get right signal via MQTT from Linux server.',
-            'The door system should be send right signal'
-        ]   
+            'Ensure the system can accurately detect the user approaching the garage door.',
+            'Establish reliable MQTT communication between the Linux server and the door system.',
+            'Ensure the door system correctly processes and responds to MQTT signals.'
+        ],
+        features: [
+            'Hands-free automatic door unlocking using mobile device proximity detection.',
+            'Secure communication using MQTT protocol.',
+            'Remote access and control via a mobile app (if applicable).'
+        ]
     }
 ];
 class ProjectManager{
@@ -58,15 +63,17 @@ class ProjectManager{
         this.modalContainer.innerHTML = `
             <div class="modal-content">
                 <button class="modal-close">&times;</button>
-                <h2>${project.title}</h2>
-                <img src="${project.image}" alt="${project.title}">
                 <div class="project-details">
-                    <h3>Description</h3>
+                    <h2>${project.year}/${project.title}</h2>
                     <p>${project.description}</p>
-                    <h3>Technologies</h3>
-                    <div class Technologies>
+                    <h3>Build /w</h3>
+                    <div class="Technologies">
                         ${project.technologies.map(tech => `<span class="tag">${tech}</span>`).join('')}
                     </div>
+                    <h3>Features</h3>
+                    <ul>
+                        ${project.features.map(feature => `<li>${feature}</li>`).join('')}
+                    </ul>
                     <h3>Challenges OverCome</h3>
                     <ul>
                         ${project.challenges.map(challenge => `<li>${challenge}</li>`).join('')}
@@ -75,6 +82,7 @@ class ProjectManager{
                         ${project.githubLink ? `<a href="${project.githubLink}" target="_blank">View On Github</a>` : ''}
                     </div>
                 </div>
+                <img class="project-images" src="${project.image}" alt="${project.title}">
             </div>
         `;
         //Add close button event functionality
@@ -82,6 +90,11 @@ class ProjectManager{
         closeButton.addEventListener('click', () => {
             this.closeModal();
         });
+        // const openPhoto = this.modalContainer.querySelector('.project-images');
+        // openPhoto.addEventListener('click', function (){
+        //     const modal = createModal();
+        //     this.modalContainer.body.appendChild(modal);
+        // });
         //Show the modal
         this.modalContainer.style.display = 'block';
         this.disableScroll();
@@ -90,4 +103,58 @@ class ProjectManager{
         this.modalContainer.style.display = 'none';
         this.enableScroll();
     }
+//     // Create OpenPhoto
+//     openPhoto() {
+//         const modal = this.modalContainer.createElement('div');
+//         modal.className = 'image-modal';
+//         modal.style.position = 'fixed';
+//         modal.style.top = '0';
+//         modal.style.left = '0';
+//         modal.style.width = '100%';
+//         modal.style.height = '100%';
+//         modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+//         modal.style.display = 'flex';
+//         modal.style.alignItems = 'center';
+//         modal.style.justifyContent = 'center';
+//         modal.style.zIndex = '1000';
+        
+//         // Add larger image to the modal
+//         const largeImage = this.modalContainer.createElement('img');
+//         largeImage.src = thumbnailImage.src; // Use the same source or replace with a higher quality version
+//         largeImage.style.maxWidth = '90%';
+//         largeImage.style.maxHeight = '90%';
+//         largeImage.style.border = '2px solid white';
+        
+//         // Add close button
+//         const closeButton = this.modalContainer.createElement('button');
+//         closeButton.textContent = 'Close';
+//         closeButton.style.position = 'absolute';
+//         closeButton.style.top = '20px';
+//         closeButton.style.right = '20px';
+//         closeButton.style.padding = '10px 20px';
+//         closeButton.style.background = 'white';
+//         closeButton.style.border = 'none';
+//         closeButton.style.cursor = 'pointer';
+        
+//         // Add click event to close the modal
+//         closeButton.addEventListener('click', () => {
+//             this.modalContainer.body.removeChild(modal);
+//         });
+        
+//         // Also close when clicking outside the image
+//         modal.addEventListener('click', (event) => {
+//         if (event.target === modal) {
+//             this.modalContainer.body.removeChild(modal);
+//         }
+//         });
+        
+//         // Add elements to modal
+//         modal.appendChild(largeImage);
+//         modal.appendChild(closeButton);
+        
+//         return modal;
+//     }
 }
+
+
+  
